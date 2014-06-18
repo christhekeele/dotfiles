@@ -10,10 +10,10 @@ install brew-cask
 cask install xquartz virtualbox
 
 # PRODUCTIVITY
-cask install alfred daisydisk menumeters onepassword sparrow vagrant
+cask install alfred daisydisk menumeters onepassword sparrow
 
 # DEVELOPMENT
-cask install dropbox iterm2 sourcetree
+cask install dropbox iterm2 sourcetree vagrant
 
 # OTHER
 cask install colorpicker-hex ffmpegx flux mactex steam utorrent vlc
@@ -31,15 +31,18 @@ install rcm
 # LANGUAGES
 install erlang exenv nvm rbenv ruby-build
 
-# DATA STORES AND TRANSFER
-install git hub memcached openssl postgresql protobuf rabbitmq redis
+# DATA STORES
+install memcached postgresql protobuf rabbitmq redis
 install ossp-uuid
+
+# NETWORKING
+install nginx openssl
 
 # TEXT AND DOCUMENT UTILITIES
 install pandoc
 
 # CODE UTILITIES
-install cloc gource
+install cloc git gource hub
 
 # VIZUALIZATION UTILITIES
 install cairo graphviz imagemagick
@@ -48,7 +51,7 @@ install cairo graphviz imagemagick
 install readline tree
 
 # OTHER
-install nginx pianobar
+install pianobar fortune
 
 
 ####
