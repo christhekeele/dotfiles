@@ -63,3 +63,15 @@ install rake-completion rails-completion
 
 # OTHER
 install vagrant-completion
+
+
+####
+# FINISHERS
+##
+
+# Trigger alfred completion
+cask alfred
+
+# GC downloads
+cask cleanup
+cleanup
