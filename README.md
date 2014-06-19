@@ -1,12 +1,12 @@
 dotfiles
 ========
 
-> christhekeele's personal dotfiles for *nixes
+> **christhekeele's personal dotfiles for \*nixes**
 
 Installation
 ------------
 
-Requirements: `git`, `rcm`, sudo access
+Requirements: `git`, `rcm`, `sudo` access
 
 Get my dotfiles à la:
 
