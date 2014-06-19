@@ -10,7 +10,8 @@ install brew-cask
 cask install xquartz virtualbox
 
 # PRODUCTIVITY
-cask install alfred daisydisk menumeters onepassword sparrow
+cask install alfred daisydisk menumeters onepassword
+# cask install sparrow
 
 # DEVELOPMENT
 cask install dropbox iterm2 sourcetree vagrant
@@ -51,7 +52,7 @@ install cairo graphviz imagemagick
 install readline tree
 
 # OTHER
-install pianobar fortune
+install cowsay fortune pianobar
 
 
 ####
@@ -73,7 +74,7 @@ install vagrant-completion
 ##
 
 # Trigger alfred completion
-cask alfred
+cask alfred link
 
 # GC downloads
 cask cleanup
