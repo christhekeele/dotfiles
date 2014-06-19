@@ -22,13 +22,7 @@ They're made to work with the excellent dotfile manager [rcm](https://github.com
 Post-Installation
 -----------------
 
-Runnin `rcup` for the first time will place this project's README and LICENSE in your home folder. (Later runs won't once the `.rcrc` is set up for the first time.) After your initial installation, execute
-
-```bash
-rm -f ~/.LICENSE.md ~/.README.md
-```
-
-to rid yourself of them.
+Running `rcup` for the first time will accidentally place this project's README and LICENSE in your home folder. (Later runs won't once the `.rcrc` is in place.) After your initial installation, prune them with `rm -f ~/.LICENSE.md ~/.README.md`.
 
 Contents
 --------
