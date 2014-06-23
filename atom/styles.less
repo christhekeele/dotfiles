@@ -130,6 +130,20 @@ body.is-blurred .workspace {
 
 }
 
+.minimap {
+  .editor .lines .line {
+    &.git-line-added {
+      background: @git-added-color;
+    }
+    &.git-line-modified {
+      background: @git-modified-color;
+    }
+    &.git-line-removed {
+      background: @git-removed-color;
+    }
+  }
+}
+
 .status-bar {
 
   .git-view .git-status {
