@@ -1,0 +1,7 @@
+[user]
+	name = Chris Keele
+	email = dev@chriskeele.com
+[push]
+	default = simple
+[alias]
+	oops = commit --amend --no-edit
