@@ -2,8 +2,14 @@
 	path = zprezto
 	url = git@github.com:christhekeele/prezto.git
 [submodule "vim/nerdtree"]
-	path = vim/nerdtree
+	path = vim/plugins/nerdtree
 	url = https://github.com/scrooloose/nerdtree.git
 [submodule "vim/vim-fugitive"]
-	path = vim/vim-fugitive
+	path = vim/plugins/vim-fugitive
 	url = git://github.com/tpope/vim-fugitive.git
+[submodule "vim/plugins/nerdtree"]
+	path = vim/plugins/nerdtree
+	url = git@github.com:scrooloose/nerdtree.git
+[submodule "vim/plugins/vim-fugitive"]
+	path = vim/plugins/vim-fugitive
+	url = git@github.com:tpope/vim-fugitive.git

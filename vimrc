@@ -1,10 +1,10 @@
-call pathogen#infect('plugins/{}')
+all pathogen#infect('plugins/{}')
 
 " Autoreload this file.
-augroup reload_vimrc " {
+augroup reload_vimrc {
   autocmd!
   autocmd BufWritePost $MYVIMRC source $MYVIMRC
-augroup END " }
+augroup END }
 
 " Use syntax highlighting
 syntax on
@@ -16,7 +16,7 @@ color twilight
 filetype plugin indent on
 
 " Better line continuation indicator
-set showbreak=↪
+set showbreak=⇇
 
 " Show line numbers
 set number
@@ -42,5 +42,14 @@ autocmd FileAppendPre   * :call TrimWhiteSpace()
 autocmd FilterWritePre  * :call TrimWhiteSpace()
 autocmd BufWritePre     * :call TrimWhiteSpace()
 
-" Spellcheck on Git commits.
+" Spellcheck on Git commits
 autocmd FileType gitcommit setlocal spell
+
+" Use some meta+function key codes to
+" make special key combos work in terminal
+
+map  <S-F1> <S-CR>
+map! <S-F1> <S-CR>
+
+" Bind shift-enter to esc
+inoremap <S-CR> <Esc>
