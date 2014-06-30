@@ -1,4 +1,5 @@
 if [[ $OSTYPE == 'darwin'* ]]; then
   # Install from Brewfile
-  brew bundle ~/.Brewfile
+
+  # brew bundle ~/.Brewfile
 fi
