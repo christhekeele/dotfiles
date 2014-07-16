@@ -1,4 +1,4 @@
-all pathogen#infect('plugins/{}')
+execute pathogen#infect('plugins/{}')
 
 " Autoreload this file.
 augroup reload_vimrc {
@@ -53,3 +53,33 @@ map! <S-F1> <S-CR>
 
 " Bind shift-enter to esc
 inoremap <S-CR> <Esc>
+vnoremap <S-CR> <Esc>
+cnoremap <S-CR> <Esc>
+nnoremap <S-CR> <Esc>
+
+" Reduce number of hit-enter prompts
+set cmdheight=2
+set shortmess=aoOtI
+
+" NerdTree shortcuts
+map <silent> <C-t> :NERDTreeToggle<CR>
+
+" Single character insert
+function! InsertSingle()
+  sleep 240m|let l:a = getchar(0)
+  if l:a != 0
+    silent! exec "normal a" . nr2char(l:a)
+  else
+    silent! exec "normal a "
+  endif
+endfunction
+nnoremap <silent> <Space> :call InsertSingle()<CR>
+
+" Dynamic ruby evaulation bindings
+" autocmd FileType ruby nmap <buffer> <C-,> <Plug>(xmpfilter-mark)
+" autocmd FileType ruby xmap <buffer> <C-,> <Plug>(xmpfilter-mark)
+" autocmd FileType ruby imap <buffer> <C-,> <Plug>(xmpfilter-mark)
+"
+" autocmd FileType ruby nmap <buffer> <C-.> <Plug>(xmpfilter-run)
+" autocmd FileType ruby xmap <buffer> <C-.> <Plug>(xmpfilter-run)
+" autocmd FileType ruby imap <buffer> <C-.> <Plug>(xmpfilter-run)

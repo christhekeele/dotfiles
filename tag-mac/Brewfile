@@ -1,4 +1,4 @@
-####
+###
 # APPLICATIONS
 ##
 
@@ -46,7 +46,8 @@ install pandoc
 install cloc git gource hub
 
 # VIZUALIZATION UTILITIES
-install cairo graphviz imagemagick
+install cairo imagemagick
+install graphviz --with-bindings --with-freetype --with-librsvg --with-pangocairo
 
 # COMMANDLINE UTILITIES
 install readline tree

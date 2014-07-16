@@ -33,3 +33,7 @@ export PATH=$PATH:$GOPATH/bin
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
+
+if [[ $OSTYPE == 'darwin'* ]]; then
+  export ATOM_PATH=/Users/keele/Applications/
+fi

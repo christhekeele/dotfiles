@@ -1,0 +1,10 @@
+AllCops:
+  Include:
+    - ruby/regexp /**\/[A-Z][a-z]+file$/
+    - '**/config.ru'
+    - '**/*.gemspec'
+  Exclude:
+    - 'db/**/*'
+    - 'config/**/*'
+    - 'script/**/*'
+
