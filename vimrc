@@ -1,16 +1,53 @@
 execute pathogen#infect('plugins/{}')
 
+set nocompatible
+
 " Autoreload this file.
 augroup reload_vimrc {
   autocmd!
   autocmd BufWritePost $MYVIMRC source $MYVIMRC
 augroup END }
 
+set backspace=indent,eol,start
+                    " allow backspacing over everything in insert mode
+
+" move through wrapped lines
+nnoremap j gj
+nnoremap k gk
+
+" Use Q for formatting the current paragraph (or selection)
+vmap Q gq
+nmap Q gqap
+
+set shiftwidth=2  " number of spaces to use for autoindenting
+set shiftround    " use multiple of shiftwidth when indenting with '<' and '>'
+
+set ignorecase    " ignore case when searching
+set smartcase     " ignore case if search pattern is all lowercase,
+                  "    case-sensitive otherwise
+set smarttab      " insert tabs on the start of a
+                  "    line according to
+                  "    shiftwidth, not tabstop
+
+" Don't use vim backup utils
+set nobackup
+set noswapfile
+
+set history=1000         " remember more commands and search history
+set undolevels=1000      " use many muchos levels of undo
+set wildignore=*.swp,*.bak,*.pyc,*.class
+set title                " change the terminal's title
+set visualbell           " don't beep
+set noerrorbells         " don't beep
+
 " Use syntax highlighting
 syntax on
 
 " Set theme
 color twilight
+
+" Reevaluate buffer after type faster
+set updatetime=1500
 
 " Autoindent
 filetype plugin indent on
@@ -61,8 +98,48 @@ nnoremap <S-CR> <Esc>
 set cmdheight=2
 set shortmess=aoOtI
 
-" NerdTree shortcuts
+" Enter commands with ;
+nnoremap ; :
+vnoremap ; :
+
+" Better window navigation
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
+" GitGutter Background color
+highlight clear SignColumn
+" GitGutter signs
+let g:gitgutter_sign_added = '❯❯'
+let g:gitgutter_sign_modified = '❯❯'
+let g:gitgutter_sign_removed = '❯❯'
+let g:gitgutter_sign_removed_first_line = '❯❯'
+let g:gitgutter_sign_modified_removed = '❯❯'
+" GitGutter update times
+let g:gitgutter_realtime = 1
+let g:gitgutter_eager = 1
+au FocusLost * nested silent! wall
+" GitGutter always there
+let g:gitgutter_sign_column_always = 1
+" GitGutter ignore whitespace`
+let g:gitgutter_diff_args = '-w'
+
+" Airline show buffers
+let g:airline#extensions#tabline#enabled = 1
+" Airline buffer seperators
+"let g:airline#extensions#tabline#left_sep = '❯'
+"let g:airline#extensions#tabline#left_alt_sep = '❱'
+" show just the filename
+"let g:airline#extensions#tabline#fnamemod = ':t'
+
+" NERDTree shortcuts
 map <silent> <C-t> :NERDTreeToggle<CR>
+" NERDTree auto-open
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+" NERDTree auto-close
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
 " Single character insert
 function! InsertSingle()

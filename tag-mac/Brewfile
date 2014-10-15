@@ -25,12 +25,13 @@ cask install colorpicker-hex ffmpegx flux mactex steam utorrent vlc
 ##
 
 tap thoughtbot/formulae
+tap homebrew/science
 
 # CONFIGURATION MANAGEMENT
 install rcm
 
 # LANGUAGES
-install erlang exenv nvm rbenv ruby-build
+install erlang exenv nvm rbenv ruby-build R
 
 # DATA STORES
 install memcached postgresql protobuf rabbitmq redis

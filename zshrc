@@ -28,7 +28,12 @@ alias prod='nocorrect prod '
 alias demo='nocorrect demo '
 
 # VAGRANT
+
 alias vagrant='nocorrect vagrant '
+
+# RUBY
+
+alias irb='irb --simple-prompt'
 
 # ELIXIR
 
@@ -40,7 +45,13 @@ alias go='nocorrect go '
 
 # NODE
 
+export NVM_DIR=~/.nvm
+source $(brew --prefix nvm)/nvm.sh
 alias npm-exec='PATH=$(npm bin):$PATH'
+
+# POSTGRES
+
+export PGDATA=/usr/local/var/postgres
 
 # SHELL
 

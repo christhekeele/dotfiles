@@ -8,6 +8,10 @@
  * http://www.lesscss.org
  */
 
+@background-color :   #373737;
+
+@accent-color:        #9C04CF;
+
 @git-added-color:     #8F9D6A;
 @git-modified-color:  #7587A6;
 @git-removed-color:   #CF6A4C;
@@ -21,7 +25,7 @@ body.is-blurred .workspace {
 // Better palette selection hightlighting for various dropdowns
   ol li.selected {
     color: @git-modified-color;
-    background-color: #373737;
+    background-color: @background-color;
   }
 }
 
@@ -37,12 +41,62 @@ body.is-blurred .workspace {
   .list-tree li.status-removed, .list-tree li.status-removed > .list-item {
     color: @git-removed-color;
   }
-  
-  
+
+
   .list-tree li.status-ignored, .list-tree li.status-ignored > .list-item {
     display: none;
   }
 
+}
+
+.block-cursor {
+  background-color: mix(lighten(@background-color, 40%), @accent-color);
+  width: 0.63em !important;
+  visibility: visible;
+}
+
+
+.block-cursor-visible() {
+    & .cursor {
+      .block-cursor();
+    }
+    & .cursor.blink-off {
+      .block-cursor();
+    }
+}
+
+.block-cursor-hidden() {
+    & .cursor.hidden-cursor {
+      .block-cursor();
+      display: block;
+    }
+    & .cursor.hidden-cursor.blink-off {
+      .block-cursor();
+      display: block;
+    }
+}
+
+
+.vim-mode.command-mode {
+
+  .block-cursor-visible();
+  .block-cursor-hidden();
+
+  &.editor.is-focused {
+    .block-cursor-visible();
+    .block-cursor-hidden();
+  }
+}
+
+.vim-mode.visual-mode {
+
+  .block-cursor-visible();
+  .block-cursor-hidden();
+
+  &.editor.is-focused {
+    .block-cursor-visible();
+    .block-cursor-hidden();
+  }
 }
 
 .editor {
@@ -122,7 +176,7 @@ body.is-blurred .workspace {
     opacity: 0.25;
     background-color: #FFFFFF;
   }
-  
+
   .crosshairs .crosshair {
     background-color: white;
     opacity: 0.08;
