@@ -6,6 +6,15 @@
 #
 
 #
+# Session detection
+#
+if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ] || [[ $(ps -o comm= -p $PPID) =~ ssh ]]; then
+  export SESSION_TYPE=remote/ssh
+else
+  export SESSION_TYPE=local
+fi
+
+#
 # Browser
 #
 
@@ -74,4 +83,3 @@ TMPPREFIX="${TMPDIR%/}/zsh"
 if [[ ! -d "$TMPPREFIX" ]]; then
   mkdir -p "$TMPPREFIX"
 fi
-
