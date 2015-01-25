@@ -8,8 +8,8 @@ augroup reload_vimrc {
   autocmd BufWritePost $MYVIMRC source $MYVIMRC
 augroup END }
 
+" allow backspacing over everything in insert mode
 set backspace=indent,eol,start
-                    " allow backspacing over everything in insert mode
 
 " move through wrapped lines
 nnoremap j gj
@@ -44,7 +44,8 @@ set noerrorbells         " don't beep
 syntax on
 
 " Set theme
-color twilight
+let g:hybrid_use_iTerm_colors = 1
+colorscheme twilight
 
 " Reevaluate buffer after type faster
 set updatetime=1500
@@ -140,17 +141,25 @@ autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 " NERDTree auto-close
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+let NERDTreeShowHidden=1
 
 " Single character insert
 function! InsertSingle()
   sleep 240m|let l:a = getchar(0)
   if l:a != 0
-    silent! exec "normal a" . nr2char(l:a)
+    silent! exec "normal i" . nr2char(l:a)
   else
-    silent! exec "normal a "
+    silent! exec "normal i "
   endif
 endfunction
 nnoremap <silent> <Space> :call InsertSingle()<CR>
+
+" Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
+vmap <Enter> <Plug>(EasyAlign)
+" Start interactive EasyAlign for a motion/text object (e.g. <Leader>aip)
+nmap <Leader>a <Plug>(EasyAlign)
+
+set pastetoggle=<Ctrl-P>
 
 " Dynamic ruby evaulation bindings
 " autocmd FileType ruby nmap <buffer> <C-,> <Plug>(xmpfilter-mark)
@@ -160,3 +169,6 @@ nnoremap <silent> <Space> :call InsertSingle()<CR>
 " autocmd FileType ruby nmap <buffer> <C-.> <Plug>(xmpfilter-run)
 " autocmd FileType ruby xmap <buffer> <C-.> <Plug>(xmpfilter-run)
 " autocmd FileType ruby imap <buffer> <C-.> <Plug>(xmpfilter-run)
+
+" Recognize markdown better
+autocmd BufNewFile,BufReadPost *.md set filetype=markdown

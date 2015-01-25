@@ -11,6 +11,11 @@ fi
 
 alias -g isntall="install"
 
+# GIT
+
+alias g='git'
+alias gi='git'
+
 # RUBY
 
 alias spring='nocorrect spring '
@@ -18,6 +23,7 @@ alias guard='nocorrect guard '
 alias rspec='nocorrect rspec '
 alias bundle='nocorrect bundle '
 alias pry='nocorrect pry '
+alias powder='nocorrect powder '
 
 # HEROKU BINSTUBS
 
@@ -47,11 +53,15 @@ alias go='nocorrect go '
 
 export NVM_DIR=~/.nvm
 source $(brew --prefix nvm)/nvm.sh
-alias npm-exec='PATH=$(npm bin):$PATH'
+# alias npm-exec='PATH=$(npm bin):$PATH'
 
 # POSTGRES
 
 export PGDATA=/usr/local/var/postgres
+
+# APPLICATIONS
+
+alias chrome="nocorrect open -a \"Google Chrome\""
 
 # SHELL
 
@@ -61,6 +71,6 @@ if [[ $OSTYPE == 'darwin'* ]]; then
   notify() { osascript -e "display notification \"${1:-Finished}\" with title \"${2:-Note}\" subtitle \"$3\"" }
   report() { "$@"; result=$?; [ $result -eq 0 ] && notify "$*" Succeeded || notify "$*" Failed; return $result }
 
-  mps() { ps -eo comm,pid | grep -v "grep" | grep $1 }
+  mps() { ps -eo comm,pid | grep -v "grep" | grep $2 }
   mkill() { mps $1 | cut -f2 -d '|' | xargs kill -9 }
 fi

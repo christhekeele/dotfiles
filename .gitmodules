@@ -28,3 +28,30 @@
 [submodule "vim/plugins/command-t"]
 	path = vim/plugins/command-t
 	url = git@github.com:wincent/command-t.git
+[submodule "vim/plugins/treetop.vim"]
+	path = vim/plugins/treetop.vim
+	url = git@github.com:nanki/treetop.vim.git
+[submodule "vim/plugins/vim-slim"]
+	path = vim/plugins/vim-slim
+	url = git@github.com:slim-template/vim-slim.git
+[submodule "vim/plugins/vim-haml"]
+	path = vim/plugins/vim-haml
+	url = git@github.com:tpope/vim-haml.git
+[submodule "vim/plugins/vim-rails"]
+	path = vim/plugins/vim-rails
+	url = git@github.com:tpope/vim-rails.git
+[submodule "vim/plugins/vim-easy-align"]
+	path = vim/plugins/vim-easy-align
+	url = git@github.com:junegunn/vim-easy-align.git
+[submodule "vim/plugins/vim-repeat"]
+	path = vim/plugins/vim-repeat
+	url = git@github.com:tpope/vim-repeat.git
+[submodule "vim/plugins/promptline.vim"]
+	path = vim/plugins/promptline.vim
+	url = git@github.com:edkolev/promptline.vim.git
+[submodule "vim/plugins/vim-coffee-script"]
+	path = vim/plugins/vim-coffee-script
+	url = https://github.com/kchmck/vim-coffee-script.git
+[submodule "vim/plugins/emmet-vim"]
+	path = vim/plugins/emmet-vim
+	url = git@github.com:mattn/emmet-vim.git
