@@ -13,10 +13,9 @@ export HISTSIZE=10000
 
 export EDITOR=vim
 
-export LOCAL=true
-
 export RBENV_ROOT=/usr/local/var/rbenv
-#export PATH=~/.rbenv/shims:$PATH
+export PATH=$RBENV_ROOT/bin:$PATH
+export PATH=$RBENV_ROOT/shims:$PATH
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
 export EXENV_ROOT=/usr/local/var/exenv
@@ -38,4 +37,3 @@ if [[ $OSTYPE == 'darwin'* ]]; then
 fi
 
 export PATH=./bin:$PATH
-
