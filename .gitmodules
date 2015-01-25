@@ -28,3 +28,6 @@
 [submodule "vim/plugins/command-t"]
 	path = vim/plugins/command-t
 	url = git@github.com:wincent/command-t.git
+[submodule "vim/plugins/vim-airline"]
+	path = vim/plugins/vim-airline
+	url = git@github.com:bling/vim-airline.git
