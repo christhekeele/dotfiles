@@ -34,3 +34,6 @@
 [submodule "vim/plugins/vim-gitgutter"]
 	path = vim/plugins/vim-gitgutter
 	url = git@github.com:airblade/vim-gitgutter.git
+[submodule "vim/plugins/vim-ruby-xmpfilter"]
+	path = vim/plugins/vim-ruby-xmpfilter
+	url = git@github.com:t9md/vim-ruby-xmpfilter.git
