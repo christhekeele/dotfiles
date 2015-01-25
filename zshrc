@@ -74,8 +74,3 @@ if [[ $OSTYPE == 'darwin'* ]]; then
   mps() { ps -eo comm,pid | grep -v "grep" | grep $2 }
   mkill() { mps $1 | cut -f2 -d '|' | xargs kill -9 }
 fi
-
-# Local, non-checked in settings.
-if [[ -s "${ZDOTDIR:-$HOME}/.zshlocal" ]]; then
-  source "${ZDOTDIR:-$HOME}/.zshlocal"
-fi
