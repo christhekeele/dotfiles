@@ -31,3 +31,6 @@
 [submodule "vim/plugins/vim-airline"]
 	path = vim/plugins/vim-airline
 	url = git@github.com:bling/vim-airline.git
+[submodule "vim/plugins/vim-gitgutter"]
+	path = vim/plugins/vim-gitgutter
+	url = git@github.com:airblade/vim-gitgutter.git
