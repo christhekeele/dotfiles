@@ -52,7 +52,7 @@ alias go='nocorrect go '
 # NODE
 
 export NVM_DIR=~/.nvm
-source $(brew --prefix nvm)/nvm.sh
+# source $(brew --prefix nvm)/nvm.sh
 # alias npm-exec='PATH=$(npm bin):$PATH'
 
 # POSTGRES
@@ -68,6 +68,8 @@ alias chrome="nocorrect open -a \"Google Chrome\""
 alias loc="cloc . --exclude-lang=Javascript,HTML,CSS,YAML,Bourne\ Shell"
 
 if [[ $OSTYPE == 'darwin'* ]]; then
+  source $(brew --prefix nvm)/nvm.sh
+
   notify() { osascript -e "display notification \"${1:-Finished}\" with title \"${2:-Note}\" subtitle \"$3\"" }
   report() { "$@"; result=$?; [ $result -eq 0 ] && notify "$*" Succeeded || notify "$*" Failed; return $result }
 
