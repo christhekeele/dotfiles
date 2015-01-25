@@ -7,6 +7,9 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
+# better probing of aliases
+alias which="type -a "
+
 # TYPOS
 
 alias -g isntall="install"
@@ -18,6 +21,8 @@ alias gi='git'
 
 # RUBY
 
+alias rake='nocorrect rake '
+alias rails='nocorrect rails '
 alias spring='nocorrect spring '
 alias guard='nocorrect guard '
 alias rspec='nocorrect rspec '
