@@ -109,6 +109,9 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
+" Sane buffer closing wilout killing window
+command Bx bp|bd #
+
 " GitGutter Background color
 highlight clear SignColumn
 " GitGutter signs

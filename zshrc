@@ -16,7 +16,6 @@ alias -g isntall="install"
 
 # GIT
 
-alias g='git'
 alias gi='git'
 
 # RUBY

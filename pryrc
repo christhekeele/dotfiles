@@ -24,3 +24,20 @@ Pry.config.prompt = [
     prompt.call(*args) << "\e[1;32m.\e[0;33m.\e[1;31m. \e[0m"
   }
 ]
+
+def monitor(every: 1, initial: nil)
+  $monitor = Thread.new do
+    previous = initial
+    loop do
+      yield; Thread.stop
+    end
+  end.tap do
+    $monitor_runner = Thread.new do
+      loop do
+        sleep every
+        break unless $monitor.alive?
+        $monitor.run
+      end
+    end
+  end
+end
