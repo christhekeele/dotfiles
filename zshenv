@@ -23,7 +23,7 @@ export PATH=$RBENV_ROOT/bin:$PATH
 export PATH=$RBENV_ROOT/shims:$PATH
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
-export EXENV_ROOT=${EXENV_ROOT:-$HOME/.rbenv}
+export EXENV_ROOT=${EXENV_ROOT:-$HOME/.exenv}
 export PATH=$EXENV_ROOT/bin:$PATH
 export PATH=$EXENV_ROOT/shims:$PATH
 if which exenv > /dev/null; then eval "$(exenv init zsh -)"; fi

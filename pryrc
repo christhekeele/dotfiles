@@ -8,7 +8,7 @@ end
 prompt = ->(obj, next_level, pry){
   "\e[1;36mʃ ".tap do |prompt|
     if obj.to_s == 'main'
-      prompt << "\e[0;36m#{pry.config.prompt_name} " unless pry.config.prompt_name.to_s.empty? or pry.config.prompt_name == 'pry'
+      prompt << "\e[0;36m#{pry.config.prompt_name} " if pry.respond_to?(:config) and !pry.config.prompt_name.to_s.empty? and !pry.config.prompt_name == 'pry'
     else
       prompt << "\e[1;35m#{obj} "
     end

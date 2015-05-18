@@ -58,6 +58,14 @@ set showbreak=⇇
 
 " Show line numbers
 set number
+" But relative numbers
+set relativenumber
+" Except when we lose focus
+:au FocusLost * :set number
+:au FocusGained * :set relativenumber
+" Or in insert mode
+autocmd InsertEnter * :set number
+autocmd InsertLeave * :set relativenumber
 
 " Never enter Ex mode
 nnoremap Q <nop>
@@ -94,6 +102,14 @@ inoremap <S-CR> <Esc>
 vnoremap <S-CR> <Esc>
 cnoremap <S-CR> <Esc>
 nnoremap <S-CR> <Esc>
+
+" Bind ✠ (U+2720) to esc
+"  so iTerm can emit it from shift-enter
+"  during ssh vim sessions
+inoremap ✠ <Esc>
+vnoremap ✠ <Esc>
+cnoremap ✠ <Esc>
+nnoremap ✠ <Esc>
 
 " Reduce number of hit-enter prompts
 set cmdheight=2
