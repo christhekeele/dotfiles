@@ -17,12 +17,12 @@
 @git-removed-color:   #CF6A4C;
 
 // Blur inactive windows
-body.is-blurred .workspace {
+body.is-blurred .atom-workspace {
   -webkit-filter: hue-rotate(19deg);
   // -webkit-filter: blur(0.13em) hue-rotate(19deg);
 }
 
-.workspace .select-list.from-top.overlay {
+.atom-workspace atom-panel.modal.select-list.from-top {
 // Better palette selection hightlighting for various dropdowns
   ol li.selected {
     color: @git-modified-color;
@@ -83,7 +83,7 @@ body.is-blurred .workspace {
   .block-cursor-visible();
   .block-cursor-hidden();
 
-  &.editor.is-focused {
+  &atom-text-editor::shadow.is-focused {
     .block-cursor-visible();
     .block-cursor-hidden();
   }
@@ -94,21 +94,21 @@ body.is-blurred .workspace {
   .block-cursor-visible();
   .block-cursor-hidden();
 
-  &.editor.is-focused {
+  &atom-text-editor::shadow.is-focused {
     .block-cursor-visible();
     .block-cursor-hidden();
   }
 }
 
-.editor {
+atom-text-editor::shadow {
 
 }
 
-.editor .cursor {
+atom-text-editor::shadow .cursor {
 
 }
 
-.editor .gutter .line-number {
+atom-text-editor::shadow .gutter .line-number {
 
 // Show collapse icons
   &.foldable {
@@ -142,7 +142,7 @@ body.is-blurred .workspace {
 
 }
 
-.editor .scroll-view .lines .line {
+atom-text-editor::shadow .scroll-view .lines .line {
 
 // Bigger and better ellipses on collapse
   &.fold {
@@ -167,7 +167,7 @@ body.is-blurred .workspace {
 
 }
 
-.editor .scroll-view .underlayer {
+atom-text-editor::shadow .scroll-view .underlayer {
 
 // Better bracket matching styles
   .bracket-matcher {
@@ -186,7 +186,7 @@ body.is-blurred .workspace {
 }
 
 .minimap {
-  .editor .lines .line {
+  atom-text-editor::shadow .lines .line {
     &.git-line-added {
       background: @git-added-color;
     }

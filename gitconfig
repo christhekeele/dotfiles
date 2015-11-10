@@ -4,6 +4,7 @@
 [push]
 	default = simple
 [alias]
+  cdiff = diff
 	oops = commit --amend --no-edit
 	toops = oops
 	tpush = push

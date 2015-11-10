@@ -7,6 +7,10 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
+# Enable advanced file moves
+autoload -U zmv
+alias mvz='noglob zmv -W'
+
 # better probing of aliases
 alias which="type -a "
 
@@ -71,6 +75,8 @@ if [[ $OSTYPE == 'darwin'* ]]; then
   source $(brew --prefix nvm)/nvm.sh
 
   alias chrome="nocorrect open -a \"Google Chrome\""
+
+  eval "$(boot2docker shellinit 2>/dev/null)"
 
   notify() { osascript -e "display notification \"${1:-Finished}\" with title \"${2:-Note}\" subtitle \"$3\"" }
   report() { "$@"; result=$?; [ $result -eq 0 ] && notify "$*" Succeeded || notify "$*" Failed; return $result }
