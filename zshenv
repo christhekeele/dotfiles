@@ -2,6 +2,9 @@
 # Defines environment variables.
 #
 
+# Had to comment out /etc/zprofile in El Capitan
+export PATH=`grep -vh '^$' /etc/paths.d/* /etc/paths | paste -s -d: -`
+
 # Local, non-checked in settings.
 if [[ -s "${ZDOTDIR:-$HOME}/.zshlocal" ]]; then
   source "${ZDOTDIR:-$HOME}/.zshlocal"
@@ -28,7 +31,9 @@ export PATH=$EXENV_ROOT/bin:$PATH
 export PATH=$EXENV_ROOT/shims:$PATH
 if which exenv > /dev/null; then eval "$(exenv init zsh -)"; fi
 
-export GOPATH="$HOME/.go"
+export NVM_DIR=${NVM_DIR:-$HOME/.nvm}
+
+export GOPATH=${GOPATH:-$HOME/.go}
 export PATH="$GOPATH/bin:$PATH"
 
 export PATH="/usr/local/heroku/bin:$PATH"
@@ -38,3 +43,4 @@ if [[ $OSTYPE == 'darwin'* ]]; then
 fi
 
 export PATH=./bin:$PATH
+

@@ -1,7 +1,6 @@
 #
 # Executes commands at the start of an interactive session.
 #
-
 # Source Prezto.
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
@@ -10,9 +9,6 @@ fi
 # Enable advanced file moves
 autoload -U zmv
 alias mvz='noglob zmv -W'
-
-# better probing of aliases
-alias which="type -a "
 
 # TYPOS
 
@@ -56,16 +52,6 @@ alias miex="iex -S mix"
 # GO
 
 alias go='nocorrect go '
-
-# NODE
-
-export NVM_DIR=~/.nvm
-# source $(brew --prefix nvm)/nvm.sh
-# alias npm-exec='PATH=$(npm bin):$PATH'
-
-# POSTGRES
-
-export PGDATA=/usr/local/var/postgres
 
 # SHELL
 
