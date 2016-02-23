@@ -58,6 +58,9 @@ alias go='nocorrect go '
 alias loc="cloc . --exclude-lang=Javascript,HTML,CSS,YAML,Bourne\ Shell"
 
 if [[ $OSTYPE == 'darwin'* ]]; then
+
+  alias date="nocorrect gdate"
+
   source $(brew --prefix nvm)/nvm.sh
 
   alias chrome="nocorrect open -a \"Google Chrome\""
@@ -70,3 +73,9 @@ if [[ $OSTYPE == 'darwin'* ]]; then
   mps() { ps -eo comm,pid | grep -v "grep" | grep $2 }
   mkill() { mps $1 | cut -f2 -d '|' | xargs kill -9 }
 fi
+
+# UNALIAS
+
+# Christ this was a bad idea, zprezto.
+# From .zprezto/modules/utility/init.zsh:129
+unalias get

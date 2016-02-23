@@ -30,21 +30,24 @@ tap homebrew/science
 # CONFIGURATION MANAGEMENT
 install rcm
 
+# GENERAL
+install cmake coreutils docker
+
 # LANGUAGES
-install erlang exenv nvm rbenv ruby-build R
+install erlang exenv go lua nvm rbenv ruby-build R
 
 # DATA STORES
-install memcached postgresql protobuf rabbitmq redis
 install ossp-uuid
+install postgresql rabbitmq redis
 
 # NETWORKING
-install nginx openssl
+install nginx openssl libssh2
 
 # TEXT AND DOCUMENT UTILITIES
 install pandoc
 
 # CODE UTILITIES
-install cloc git gource hub
+install cloc git libgit2
 
 # VIZUALIZATION UTILITIES
 install cairo imagemagick
@@ -54,7 +57,7 @@ install graphviz --with-bindings --with-freetype --with-librsvg --with-pangocair
 install readline tree
 
 # OTHER
-install cowsay fortune pianobar
+install cowsay fortune
 
 
 ####
