@@ -11,6 +11,10 @@
 	tpull = pull
 	tcommit = commit
 	tmerge = merge
+	purge-branch = !git branch -d $1 && git push ${2:-origin} :$1
+	current = rev-parse --abbrev-ref HEAD
+	last = log -n1
+	recent = log -n5
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path =
@@ -19,3 +23,8 @@
 	trustExitCode = true
 [core]
 	editor = vim
+	excludesfile = /Users/keele/.gitrc/ignore
+[filter "lfs"]
+	smudge = git-lfs smudge %f
+	required = true
+	clean = git-lfs clean %f

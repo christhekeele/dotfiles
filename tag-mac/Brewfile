@@ -57,7 +57,7 @@ install graphviz --with-bindings --with-freetype --with-librsvg --with-pangocair
 install readline tree
 
 # OTHER
-install cowsay fortune
+install cowsay fortune libv8
 
 
 ####

@@ -42,6 +42,9 @@ if [[ $OSTYPE == 'darwin'* ]]; then
   export ATOM_PATH=/Users/keele/Applications/
 fi
 
+# Look for dotfile-distributed binfiles
+export PATH=~/.bin:$PATH
+
 # Always look first for project-local binfiles and executables
 export PATH=./bin:$PATH
 export PATH=./exe:$PATH

@@ -1,19 +1,19 @@
 Pry.config.command_prefix = ""
-Pry.config.memory_size = 300
+Pry.config.memory_size = 10000
 
 Pry::Commands.block_command('enable-pry', 'Enable `binding.pry` feature') do
   ENV['DISABLE_PRY'] = nil
 end
 
 prompt = ->(obj, next_level, pry){
-  "\e[1;36mʃ ".tap do |prompt|
-    if obj.to_s == 'main'
-      prompt << "\e[0;36m#{pry.config.prompt_name} " if pry.respond_to?(:config) and !pry.config.prompt_name.to_s.empty? and !pry.config.prompt_name == 'pry'
-    else
-      prompt << "\e[1;35m#{obj} "
-    end
-    prompt << "\e[0m"
+  pr = "\e[1;36mʃ "
+  if Pry.view_clip(obj) == 'main'
+    pr << "\e[0;36m#{pry.config.prompt_name} " if pry.respond_to?(:config) and !pry.config.prompt_name.to_s.empty? and !pry.config.prompt_name == 'pry'
+  else
+    pr << "\e[1;35m#{Pry.view_clip(obj)} "
   end
+  pr << "\e[1;33m#{pry.input_array.map(&:to_s).map(&:lines).flatten.count + 1} "
+  pr << "\e[0m"
 }
 
 Pry.config.prompt = [
