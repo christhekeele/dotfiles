@@ -23,7 +23,7 @@ if version > 580
         syntax reset
     endif
 endif
-let g:colors_name="twilight"
+let g:colors_name="twilight256"
 
 if has("gui_running") || &t_Co == 88 || &t_Co == 256
     " functions {{{

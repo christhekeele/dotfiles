@@ -1,30 +1,134 @@
 [user]
 	name = Chris Keele
 	email = dev@chriskeele.com
-[push]
-	default = simple
-[alias]
-  cdiff = diff
-	oops = commit --amend --no-edit
-	toops = oops
-	tpush = push
-	tpull = pull
-	tcommit = commit
-	tmerge = merge
-	purge-branch = !git branch -d $1 && git push ${2:-origin} :$1
-	current = rev-parse --abbrev-ref HEAD
-	last = log -n1
-	recent = log -n5
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path =
-[mergetool "sourcetree"]
-	cmd = /opt/homebrew-cask/Caskroom/sourcetree/1.9.4.1/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
 [core]
 	editor = vim
 	excludesfile = /Users/keele/.gitrc/ignore
+	autocrlf = input
+  precomposeunicode = true
+  whitespace = tab-in-indent,tabwidth=2
+
+[push]
+	default = simple
+[rerere]
+	enabled = true
+[merge]
+	conflictstyle = diff3
+  ff = false
+[diff]
+  mnemonicprefix = true
+[branch]
+  autosetuprebase = always
+[pull]
+  rebase = preserve
+[fetch]
+  prune = true
+
+[alias]
+  # Remember all aliases expand to preserve the original arguments, so in most cases
+  # the options for the root command can be provided to the alias.
+
+  # Check for whitespace errors:
+  # args: all normal diff args
+  lint = diff --check
+
+  # Append staged changes into the previous commit (good for incremental changes)
+  # args: -a to add all
+  # args: -m to replace message
+	oops = commit --amend --no-edit
+
+  # Shows current branch
+  current = "!current(){ cd ${GIT_PREFIX:-.} && head=$(git rev-parse --abbrev-ref HEAD) && [ $head = HEAD ] && echo $(git branch --contains $(git rev-parse --short HEAD)) || echo $head }; current"
+
+	last   = log -n1
+	latest = log -n5
+
+  # Goes back the specified number of commits in the current branch's history
+  # Good for commiting as you go then rebuilding cleaner commits once you arrive
+  # 1st variant keeps interim changes in the working directory, 2nd one stomps on them
+  # args: n number of commits, default: 1
+	rollback = "!rollback(){ cd ${GIT_PREFIX:-.} && git reset HEAD~${1:-1} --soft; }; rollback"
+	renege   = "!rollback(){ cd ${GIT_PREFIX:-.} && git reset HEAD~${1:-1} --hard; }; rollback"
+
+	chunk    = "!chunk(){ cd ${GIT_PREFIX:-.} && git add -p && git commit  || git reset }; chunk"
+
+
+[diff]
+  tool = kaleidoscope
+[merge]
+  tool = kaleidoscope
+[difftool]
+  prompt = false
+[mergetool]
+  prompt = false
+[difftool "kaleidoscope"]
+  cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" \"$REMOTE\"
+  trustExitCode = true
+[difftool "kaleidoscope"]
+  cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" \"$REMOTE\"
+  trustExitCode = true
+
 [filter "lfs"]
 	smudge = git-lfs smudge %f
 	required = true
 	clean = git-lfs clean %f
+
+# Colors in form of [foreground, <background>, <format>>] where color can be
+# normal, black, red, gree, yellow, blue, magenta, cyan, or white, and format
+# can be bold, dim, ul, blink, or reverse.
+[color "diff"]
+  plain = normal
+  meta = bold
+  frag = cyan
+  old = red
+  new = green
+  commit = yellow
+  whitespace = normal red
+[color "branch"]
+  current = green
+  local = normal
+  remote = red
+  plain = normal
+[color "status"]
+  header = normal
+  added = red
+  updated = green
+  changed = red
+  untracked = red
+  nobranch = red
+[color "grep"]
+  match = normal
+[color "interactive"]
+  prompt = normal
+  header = normal
+  help = normal
+  error = normal
+
+# The default colors are hard-coded but look something like:
+# [color "diff"]
+  # plain = normal
+  # meta = bold
+  # frag = cyan
+  # old = red
+  # new = green
+  # commit = yellow
+  # whitespace = normal red
+# [color "branch"]
+  # current = green
+  # local = normal
+  # remote = red
+  # plain = normal
+# [color "status"]
+  # header = normal
+  # added = red
+  # updated = green
+  # changed = red
+  # untracked = red
+  # nobranch = red
+# [color "grep"]
+  # match = normal
+# [color "interactive"]
+  # prompt = normal
+  # header = normal
+  # help = normal
+  # error = normal

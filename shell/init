@@ -1,0 +1,137 @@
+# dotshell is a framework for ensuring consistant loading behaviour between
+#  bash-compatible shells and shell frameworks.
+
+###
+# SOURCE PRE-LOAD ENVIRONMENT
+##
+
+# Always load the env file:
+if [ -f ~/.shell/env ]; then 
+  source ~/.shell/env
+fi
+export ENV_LOADED=true
+
+###
+# DEDUCE SHELL MODES
+##
+
+# Are we in restricted mode?
+if [[ $- == *r* ]]; then
+  export RESTRICTED=true
+fi
+# Are we in compatiblity mode?
+if [[ $0 == */sh ]] || [[ $0 == sh ]]; then
+  export COMPATIBILITY=true
+fi
+# Are we in POSIX mode?
+if [[ $SHELLOPTS == *posix* ]] || ! [ -z ${POSIXLY_CORRECT+unset} ]; then 
+  export POSIX=true
+fi
+# Are we remote?
+if ! [ -z ${SSH_CLIENT+unset} ] || ! [ -z ${SSH_TTY+unset} ] || ! [ -z ${SSH_CONNECTION+unset} ]; then
+  export REMOTE=true
+else
+  case $(ps -o comm= -p $PPID) in
+    sshd|*/sshd) export REMOTE=true;;
+  esac
+fi
+# Are we receiving terminal input?
+if [ -t 0 ]; then
+  export TTY=true
+fi
+# Are we interactive?
+if [[ $- == *i* ]]; then 
+  export INTERACTIVE=true
+fi
+# Are we a login shell?
+if [ ${0:0:1} == '-' ] || [[ $- == *l* ]]; then
+  export LOGIN=true
+fi
+
+###
+# SOURCE SHELL RCs ACCORDINGLY
+##
+
+if [[ $RESTRICTED == true ]] && [ -f ~/.shell/restricted ]; then 
+  source ~/.shell/restricted
+fi
+export RESTRICTED_LOADED=true
+
+if [[ $COMPATIBILITY == true ]] && [ -f ~/.shell/compat ]; then 
+  source ~/.shell/compat
+fi
+export COMPATIBILITY_LOADED=true
+
+if [[ $POSIX == true ]] && [ -f ~/.shell/posix ]; then 
+  source ~/.shell/posix
+fi
+export POSIX_LOADED=true
+
+if [[ $REMOTE == true ]] && [ -f ~/.shell/remote ]; then 
+  source ~/.shell/remote
+fi
+export REMOTE_LOADED=true
+
+if [[ $TTY == true ]] && [ -f ~/.shell/tty ]; then 
+  source ~/.shell/tty
+fi
+export TTY_LOADED=true
+
+if [[ $INTERACTIVE == true ]] && [ -f ~/.shell/interactive ]; then 
+  source ~/.shell/interactive
+fi
+export INTERACTIVE_LOADED=true
+
+# Are we a login shell?
+if [ ${0:0:1} == '-' ] || [[ $- == *l* ]]; then
+  export LOGIN=true
+fi
+if [[ $LOGIN == true ]] && [ -f ~/.shell/login ]; then 
+  source ~/.shell/login
+fi
+export LOGIN_LOADED=true
+
+# Report results:
+# echo SHELL MODES
+# echo RESTRICTED: $RESTRICTED
+# echo COMPATIBILITY: $COMPATIBILITY
+# echo POSIX: $POSIX
+# echo REMOTE: $REMOTE
+# echo TTY: $TTY
+# echo INTERACTIVE: $INTERACTIVE
+# echo LOGIN: $LOGIN
+
+###
+# SOURCE POST-LOAD CONFIGURATION
+##
+
+# Always load the general-purpose rc file:
+if [ -f ~/.shell/rc ]; then 
+  source ~/.shell/rc
+fi
+export RC_LOADED=true
+
+# Always load a custom local rc file that oughtn't be checked in:
+if [ -f ~/.shell/local ]; then 
+  source ~/.shell/local
+fi
+export LOCAL_LOADED=true
+
+# Report loaded:
+# echo SHELL RCs LOADS
+# echo ENV_LOADED: $ENV_LOADED
+# echo SHELL_LOADED MODES_LOADED
+# echo RESTRICTED_LOADED: $RESTRICTED_LOADED
+# echo COMPATIBILITY_LOADED: $COMPATIBILITY_LOADED
+# echo POSIX_LOADED: $POSIX_LOADED
+# echo REMOTE_LOADED: $REMOTE_LOADED
+# echo TTY_LOADED: $TTY_LOADED
+# echo INTERACTIVE_LOADED: $INTERACTIVE_LOADED
+# echo LOGIN_LOADED: $LOGIN_LOADED
+# echo RC_LOADED: $RC_LOADED
+# echo LOCAL_LOADED: $LOCAL_LOADED
+
+unset ENV_LOADED RC_LOADED LOCAL_LOADED
+unset RESTRICTED_LOADED COMPATIBILITY_LOADED POSIX_LOADED REMOTE_LOADED TTY_LOADED INTERACTIVE_LOADED LOGIN_LOADED
+unset SHELL_STOP_LOAD
+export SHELL_LOADED=true

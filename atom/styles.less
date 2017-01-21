@@ -11,16 +11,19 @@
 @background-color :   #373737;
 
 @accent-color:        #9C04CF;
+@attn-color:          #36B7BF;
 
 @git-added-color:     #8F9D6A;
 @git-modified-color:  #7587A6;
 @git-removed-color:   #CF6A4C;
 
+@default-line-num-color:  #141414;
+
 // Blur inactive windows
-body.is-blurred .atom-workspace {
-  -webkit-filter: hue-rotate(19deg);
-  // -webkit-filter: blur(0.13em) hue-rotate(19deg);
-}
+// body.is-blurred .atom-workspace {
+//   -webkit-filter: hue-rotate(19deg);
+//   -webkit-filter: blur(0.13em) hue-rotate(19deg);
+// }
 
 .atom-workspace atom-panel.modal.select-list.from-top {
 // Better palette selection hightlighting for various dropdowns
@@ -50,55 +53,61 @@ body.is-blurred .atom-workspace {
 
 }
 
-.block-cursor {
-  background-color: mix(lighten(@background-color, 40%), @accent-color);
-  width: 0.63em !important;
-  visibility: visible;
+// Avoid ligatures in strings or regexes
+atom-text-editor::shadow .string.quoted,
+atom-text-editor::shadow .string.regexp {
+  -webkit-font-feature-settings: "liga" off, "calt" off;
 }
 
+// .block-cursor {
+//   background-color: mix(lighten(@background-color, 40%), @accent-color);
+//   width: 0.63em !important;
+//   visibility: visible;
+// }
+// 
+// 
+// .block-cursor-visible() {
+//     & .cursor {
+//       .block-cursor();
+//     }
+//     & .cursor.blink-off {
+//       .block-cursor();
+//     }
+// }
+// 
+// .block-cursor-hidden() {
+//     & .cursor.hidden-cursor {
+//       .block-cursor();
+//       display: block;
+//     }
+//     & .cursor.hidden-cursor.blink-off {
+//       .block-cursor();
+//       display: block;
+//     }
+// }
 
-.block-cursor-visible() {
-    & .cursor {
-      .block-cursor();
-    }
-    & .cursor.blink-off {
-      .block-cursor();
-    }
-}
 
-.block-cursor-hidden() {
-    & .cursor.hidden-cursor {
-      .block-cursor();
-      display: block;
-    }
-    & .cursor.hidden-cursor.blink-off {
-      .block-cursor();
-      display: block;
-    }
-}
-
-
-.vim-mode.command-mode {
-
-  .block-cursor-visible();
-  .block-cursor-hidden();
-
-  &atom-text-editor::shadow.is-focused {
-    .block-cursor-visible();
-    .block-cursor-hidden();
-  }
-}
-
-.vim-mode.visual-mode {
-
-  .block-cursor-visible();
-  .block-cursor-hidden();
-
-  &atom-text-editor::shadow.is-focused {
-    .block-cursor-visible();
-    .block-cursor-hidden();
-  }
-}
+// .vim-mode.command-mode {
+// 
+//   .block-cursor-visible();
+//   .block-cursor-hidden();
+// 
+//   &atom-text-editor::shadow.is-focused {
+//     .block-cursor-visible();
+//     .block-cursor-hidden();
+//   }
+// }
+// 
+// .vim-mode.visual-mode {
+// 
+//   .block-cursor-visible();
+//   .block-cursor-hidden();
+// 
+//   &atom-text-editor::shadow.is-focused {
+//     .block-cursor-visible();
+//     .block-cursor-hidden();
+//   }
+// }
 
 atom-text-editor::shadow {
 
@@ -114,6 +123,13 @@ atom-text-editor::shadow .gutter .line-number {
   &.foldable {
     .icon-right {
       visibility: visible;
+    }
+  }
+  
+// Ensure bookmarks are very visible
+  &.bookmarked {
+    .icon-right:before {
+      color: #FFF;
     }
   }
 
@@ -142,27 +158,35 @@ atom-text-editor::shadow .gutter .line-number {
 
 }
 
-atom-text-editor::shadow .scroll-view .lines .line {
-
-// Bigger and better ellipses on collapse
-  &.fold {
-    .fold-marker:after {
-    //  Discard special default font
-      font-family: none;
-    //  Use real ellipses
-      content: "\2026";
-    // Set bigger font
-      font-size: 1.0em;
-      font-weight: bold;
-      font-style: italic;
-    // Make more noticable
-      padding-left: 0.3em;
-    }
+atom-text-editor::shadow .scroll-view .lines {
+  
+  .wrap-guide {
+    width: 5px;
   }
+  
+  .line {
 
-// Current line
-  &.cursor-line {
-    background: rgba(38, 38, 38, 1);
+  // Bigger and better ellipses on collapse
+    &.fold {
+      .fold-marker:after {
+      //  Discard special default font
+        font-family: none;
+      //  Use real ellipses
+        content: "\2026";
+      // Set bigger font
+        font-size: 1.0em;
+        font-weight: bold;
+        font-style: italic;
+      // Make more noticable
+        padding-left: 0.3em;
+      }
+    }
+
+  // Current line
+    &.cursor-line {
+      background: rgba(50, 50, 50, 1);
+    }
+    
   }
 
 }
@@ -185,16 +209,47 @@ atom-text-editor::shadow .scroll-view .underlayer {
 
 }
 
+atom-text-editor::shadow .gutter .line-numbers .line-number {
+
+  font-style: italic;
+
+  &.cursor-line {
+    color: @default-line-num-color;
+    background: mix(lighten(@background-color, 35%), @attn-color);
+    font-weight: bold;
+    font-style: normal;
+    &.cursor-line-no-selection {
+      color: lighten(@default-line-num-color, 80%);
+      background: mix(@background-color, @attn-color);
+      -webkit-animation: pulse-line-nums 2s infinite;
+    }
+  }
+}
+
+@-webkit-keyframes pulse-line-nums {
+  0% {
+    color: @background-color;
+  }
+  50% {
+    color: darken(mix(@background-color, @attn-color), 10%);
+  }
+  100% {
+    color: @background-color;
+  }
+}
+
+// PLUGINS
+
 .minimap {
   atom-text-editor::shadow .lines .line {
     &.git-line-added {
-      background: @git-added-color;
+      background: lighten(@git-added-color, 20%);
     }
     &.git-line-modified {
-      background: @git-modified-color;
+      background: lighten(@git-modified-color, 20%);
     }
     &.git-line-removed {
-      background: @git-removed-color;
+      background: lighten(@git-removed-color, 20%);
     }
   }
 }
@@ -219,4 +274,16 @@ atom-text-editor::shadow .scroll-view .underlayer {
 
 .markdown-preview atom-text-editor {
   background: black;
+}
+
+.indent-guide-improved {
+  background-color: @background-color;
+  &.indent-guide-stack {
+      width: 2px;
+      background-color: mix(@background-color, darken(@attn-color, 25%));
+    &.indent-guide-active {
+      width: 3px;
+      background-color: mix(@background-color, @attn-color);
+    }
+  }
 }

@@ -1,5 +1,3 @@
-execute pathogen#infect('plugins/{}')
-
 set nocompatible
 
 " Autoreload this file.
@@ -16,13 +14,13 @@ nnoremap j gj
 nnoremap k gk
 
 " Use Q for formatting the current paragraph (or selection)
-vmap Q gq
-nmap Q gqap
+"vmap Q gq
+"nmap Q gqap
 
 set shiftwidth=2  " number of spaces to use for autoindenting
 set shiftround    " use multiple of shiftwidth when indenting with '<' and '>'
 
-set ignorecase    " ignore case when searching
+"set ignorecase    " ignore case when searching
 set smartcase     " ignore case if search pattern is all lowercase,
                   "    case-sensitive otherwise
 set smarttab      " insert tabs on the start of a
@@ -48,7 +46,7 @@ let g:hybrid_use_iTerm_colors = 1
 colorscheme twilight
 
 " Reevaluate buffer after type faster
-set updatetime=1500
+set updatetime=750
 
 " Autoindent
 filetype plugin indent on
@@ -129,24 +127,24 @@ nnoremap <C-l> <C-w>l
 command Bx bp|bd #
 
 " GitGutter Background color
-highlight clear SignColumn
+" highlight clear SignColumn
 " GitGutter signs
-let g:gitgutter_sign_added = '❯❯'
-let g:gitgutter_sign_modified = '❯❯'
-let g:gitgutter_sign_removed = '❯❯'
-let g:gitgutter_sign_removed_first_line = '❯❯'
-let g:gitgutter_sign_modified_removed = '❯❯'
+" let g:gitgutter_sign_added = '❯❯'
+" let g:gitgutter_sign_modified = '❯❯'
+" let g:gitgutter_sign_removed = '❯❯'
+" let g:gitgutter_sign_removed_first_line = '❯❯'
+" let g:gitgutter_sign_modified_removed = '❯❯'
 " GitGutter update times
-let g:gitgutter_realtime = 1
-let g:gitgutter_eager = 1
-au FocusLost * nested silent! wall
+" let g:gitgutter_realtime = 1
+" let g:gitgutter_eager = 1
+" au FocusLost * nested silent! wall
 " GitGutter always there
-let g:gitgutter_sign_column_always = 1
+" let g:gitgutter_sign_column_always = 1
 " GitGutter ignore whitespace`
-let g:gitgutter_diff_args = '-w'
+" let g:gitgutter_diff_args = '-w'
 
 " Airline show buffers
-let g:airline#extensions#tabline#enabled = 1
+"let g:airline#extensions#tabline#enabled = 1
 " Airline buffer seperators
 "let g:airline#extensions#tabline#left_sep = '❯'
 "let g:airline#extensions#tabline#left_alt_sep = '❱'
@@ -154,13 +152,13 @@ let g:airline#extensions#tabline#enabled = 1
 "let g:airline#extensions#tabline#fnamemod = ':t'
 
 " NERDTree shortcuts
-map <silent> <C-t> :NERDTreeToggle<CR>
+"map <silent> <C-t> :NERDTreeToggle<CR>
 " NERDTree auto-open
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+"autocmd StdinReadPre * let s:std_in=1
+"autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 " NERDTree auto-close
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
-let NERDTreeShowHidden=1
+"autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+"let NERDTreeShowHidden=1
 
 " Single character insert
 function! InsertSingle()
@@ -174,20 +172,20 @@ endfunction
 nnoremap <silent> <Space> :call InsertSingle()<CR>
 
 " Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
-vmap <Enter> <Plug>(EasyAlign)
+"vmap <Enter> <Plug>(EasyAlign)
 " Start interactive EasyAlign for a motion/text object (e.g. <Leader>aip)
-nmap <Leader>a <Plug>(EasyAlign)
+"nmap <Leader>a <Plug>(EasyAlign)
 
 set pastetoggle=<Ctrl-P>
 
 " Dynamic ruby evaulation bindings
-" autocmd FileType ruby nmap <buffer> <C-,> <Plug>(xmpfilter-mark)
-" autocmd FileType ruby xmap <buffer> <C-,> <Plug>(xmpfilter-mark)
-" autocmd FileType ruby imap <buffer> <C-,> <Plug>(xmpfilter-mark)
+"autocmd FileType ruby nmap <buffer> <C-,> <Plug>(xmpfilter-mark)
+"autocmd FileType ruby xmap <buffer> <C-,> <Plug>(xmpfilter-mark)
+"autocmd FileType ruby imap <buffer> <C-,> <Plug>(xmpfilter-mark)
 "
-" autocmd FileType ruby nmap <buffer> <C-.> <Plug>(xmpfilter-run)
-" autocmd FileType ruby xmap <buffer> <C-.> <Plug>(xmpfilter-run)
-" autocmd FileType ruby imap <buffer> <C-.> <Plug>(xmpfilter-run)
+"autocmd FileType ruby nmap <buffer> <C-.> <Plug>(xmpfilter-run)
+"autocmd FileType ruby xmap <buffer> <C-.> <Plug>(xmpfilter-run)
+"autocmd FileType ruby imap <buffer> <C-.> <Plug>(xmpfilter-run)
 
 " Recognize markdown better
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown

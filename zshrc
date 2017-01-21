@@ -27,14 +27,17 @@ alias guard='nocorrect guard '
 alias rspec='nocorrect rspec '
 alias bundle='nocorrect bundle '
 alias pry='nocorrect pry '
+alias irb='irb --simple-prompt'
+
+# JS
+
+alias nvm='nocorrect nvm'
+alias node='nocorrect node'
+alias yarn='nocorrect yarn'
 
 # VAGRANT
 
 alias vagrant='nocorrect vagrant '
-
-# RUBY
-
-alias irb='irb --simple-prompt'
 
 # ELIXIR
 
