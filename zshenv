@@ -39,8 +39,8 @@ export PATH=$HOME/.mix/escripts:$PATH
 
 export SANDBOX=NONE # For certain rails projects
 
-export NVM_DIR=${NVM_DIR:-$HOME/.nvm}
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
+# export NVM_DIR=${NVM_DIR:-$HOME/.nvm}
+# [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
 
 export GOPATH=${GOPATH:-$HOME/.go}
 export PATH="$GOPATH/bin:$PATH"

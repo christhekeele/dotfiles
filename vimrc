@@ -44,6 +44,7 @@ syntax on
 " Set theme
 let g:hybrid_use_iTerm_colors = 1
 colorscheme twilight
+highlight Comment cterm=italic
 
 " Reevaluate buffer after type faster
 set updatetime=750

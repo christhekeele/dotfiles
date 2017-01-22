@@ -55,7 +55,7 @@ if [[ $OSTYPE == 'darwin'* ]]; then
 
   alias date="nocorrect gdate"
 
-  source $(brew --prefix nvm)/nvm.sh
+  # source $(brew --prefix nvm)/nvm.sh
 
   alias chrome="nocorrect open -a \"Google Chrome\""
 
