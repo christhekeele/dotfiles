@@ -1,1 +1,0 @@
-touch "${ZDOTDIR:-$HOME}/.zshlocal"

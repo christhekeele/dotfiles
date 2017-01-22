@@ -1,7 +1,0 @@
-if [[ $OSTYPE == 'darwin'* ]]; then
-  # Install from Brewfile
-  echo Skipping application installation.
-  echo To install yourself, run
-  echo 'brew bundle ~/.Brewfile'
-  # brew bundle ~/.Brewfile
-fi
