@@ -1,4 +1,0 @@
-if [[ $SHELL != *zsh* ]]; then
-  echo Making zsh your default shell...
-  sudo chsh -s $(grep zsh /etc/shells) $USER
-fi
