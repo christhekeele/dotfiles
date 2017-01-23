@@ -29,7 +29,7 @@ fish_vi_cursor and if string match -i -r xterm $TERM and __fish_cursor_xterm
 # set -gx fish_color_history_current    --bold
   set -gx fish_color_history_current    --bold --underline
 # set -gx fish_color_host               normal
-  set -gx fish_color_host               blue --italics --background=brblack
+  set -gx fish_color_host               blue --italics
 # set -gx fish_color_match              --background=brblue
   set -gx fish_color_match              --underline
 # set -gx fish_color_normal             normal
@@ -43,13 +43,13 @@ fish_vi_cursor and if string match -i -r xterm $TERM and __fish_cursor_xterm
 # set -gx fish_color_redirection        brblue
   set -gx fish_color_redirection        brblue --bold --italics
 # set -gx fish_color_root               --bold --background=red
-  set -gx fish_color_root               magenta --italics --bold --background=brblack
+  set -gx fish_color_root               magenta --italics --bold
 # set -gx fish_color_search_match       bryellow --background=brblack
-  set -gx fish_color_search_match       --background=yellow # --bold --underline
+  set -gx fish_color_search_match       --italics --background=green
 # set -gx fish_color_selection          white --bold --background=brblack
-  set -gx fish_color_selection          white --bold --background=brblack
+  set -gx fish_color_selection          brblack --bold --background=555
 # set -gx fish_color_user               brgreen
-  set -gx fish_color_user               magenta --italics --background=brblack
+  set -gx fish_color_user               magenta --italics
 # set -gx fish_color_valid_path         --underline
   set -gx fish_color_valid_path         --italics
 
@@ -60,7 +60,7 @@ fish_vi_cursor and if string match -i -r xterm $TERM and __fish_cursor_xterm
 # set -gx fish_pager_color_progress      brwhite --background=cyan
   set -gx fish_pager_color_progress      555 brblack --italics
 # unset normally
-  set -gx fish_pager_color_completion    brwhite --bold --background=brblack
+  set -gx fish_pager_color_completion    brwhite --bold
   # set -gx fish_pager_color_secondary     brblack
 
 function fish_prompt --description 'Write out the prompt'
@@ -79,34 +79,34 @@ function fish_prompt --description 'Write out the prompt'
     or  set color_pwd $fish_color_cwd
   
   set -q SESSION_TYPE; and string match -irq remote $SESSION_TYPE; or contains $USER root toor; and echo -n -s \
-    (set_color --background=brblack) ' ' (set_color normal)
+    ' '
   set -q SESSION_TYPE; and string match -irq remote $SESSION_TYPE; and echo -n -s \
     (set_color $color_usr) "$USER" (set_color normal)
   contains $USER root toor; and echo -n -s \
-    (set_color red --bold --background=brblack) '♛ ' (set_color normal)
+    (set_color red --bold) '♛ ' (set_color normal)
   not contains $USER root toor; and set -q SESSION_TYPE; and string match -irq remote $SESSION_TYPE; and echo -n -s \
-    (set_color white --background=brblack) '@' (set_color normal)
+    (set_color white) '@' (set_color normal)
   set -q SESSION_TYPE; and string match -irq remote $SESSION_TYPE; and echo -n -s \
     (set_color $color_hst) "$HOSTNAME" (set_color normal)
   echo -n -s \
-    (set_color --background=brblack) ' ' (set_color normal) \
+    ' ' \
     (set_color $color_pwd) (prompt_pwd) (set_color normal)
   echo -n -s \
-    (set_color --background=brblack) ' ' (set_color normal) \
-    (set_color green --bold --background=brblack) '❯❯❯' (set_color normal)
+    ' ' \
+    (set_color green --bold) '❯❯❯' (set_color normal)
     
   if test "$fish_key_bindings" = "fish_vi_key_bindings"
     or test "$fish_key_bindings" = "fish_hybrid_key_bindings"
-    echo -n -s (set_color --background=brblack) ' ' (set_color normal)
+    echo -n -s ' '
     switch $fish_bind_mode
     case default
-      echo -n -s (set_color 555 --background=brblack) '✄ ' (set_color normal)
+      echo -n -s (set_color 555) '✄ ' (set_color normal)
     case insert
-      echo -n -s (set_color 555 --background=brblack) '✏ ' (set_color normal)
+      echo -n -s (set_color 555) '✏ ' (set_color normal)
     case replace-one
-      echo -n -s (set_color 555 --background=brblack) '➜ ' (set_color normal)
+      echo -n -s (set_color 555) '➜ ' (set_color normal)
     case visual
-      echo -n -s (set_color 555 --background=brblack) '❝ ' (set_color normal)
+      echo -n -s (set_color 555) '❝ ' (set_color normal)
     end
   end
   
@@ -124,19 +124,19 @@ function fish_right_prompt --description 'Write out the right prompt'
   if test "$fish_key_bindings" = "fish_vi_key_bindings"; or test "$fish_key_bindings" = "fish_hybrid_key_bindings"
     switch $fish_bind_mode
     case visual
-      echo -n -s (set_color 555 --background=brblack) '❞ ' (set_color normal) \
-        (set_color --background=brblack) ' ' (set_color normal)
+      echo -n -s (set_color 555) '❞ ' (set_color normal) \
+        ' '
     end
   end
 
   echo -n -s \
-    (set_color magenta --background=brblack) '❮❮❮' (set_color normal) \
-    (set_color --background=brblack) ' ' (set_color normal)
+    (set_color magenta) '❮❮❮' (set_color normal) \
+    ' '
     
   if test -n "$git_branch"
     echo -n -s \
-      (set_color $fish_color_cwd --background=brblack) "$git_branch" (set_color normal) \
-      (set_color --background=brblack) ' ' (set_color normal)
+      (set_color $fish_color_cwd) "$git_branch" (set_color normal) \
+      ' '
   end
   
 end
