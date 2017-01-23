@@ -69,3 +69,5 @@ fi
 # Christ this was a bad idea, zprezto.
 # From .zprezto/modules/utility/init.zsh:129
 unalias get
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
