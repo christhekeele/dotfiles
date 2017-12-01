@@ -1,18 +1,56 @@
 #
 # Session detection
 #
+
 if begin set -q SSH_CLIENT; or set -q SSH_TTY; or ps -p %self | grep ssh; end
   set -gx SESSION_TYPE remote/ssh
 else
   set -gx SESSION_TYPE local
 end
 
+
+#
+# Bin paths
+#
+
+set -gx PATH /usr/local/bin $PATH
+
+set -gx RBENV_ROOT ~/.rbenv
+set -gx PATH $RBENV_ROOT/bin $PATH
+set -gx PATH $RBENV_ROOT/shims $PATH
+
+set -gx NODENV_ROOT ~/.nodenv
+set -gx PATH $NODENV_ROOT/bin $PATH
+set -gx PATH $NODENV_ROOT/shims $PATH
+
+set -gx EXENV_ROOT ~/.exenv
+set -gx PATH $EXENV_ROOT/bin $PATH
+set -gx PATH $EXENV_ROOT/shims $PATH
+
+set -gx MIX_HOME ~/.mix
+
+set -gx PATH $HOME/bin $PATH
+set -gx PATH $MIX_HOME/escripts $PATH
+# set -gx PATH './node_modules/.bin' PATH
+set -gx PATH './exe' $PATH
+set -gx PATH './bin' $PATH
+
+set -gx ATOM_PATH /Applications
+
+
+#
+# VIM mode
+#
+
 fish_vi_key_bindings
 fish_vi_cursor and if string match -i -r xterm $TERM and __fish_cursor_xterm
+bind -M insert -m default \e\[A vim-redraw up-or-search
+
 
 #
 # Colors
 #
+
 # set -gx fish_color_autosuggestion     555 brblack
   set -gx fish_color_autosuggestion     555 brblack --italics
 # set -gx fish_color_command            --bold
@@ -65,3 +103,6 @@ fish_vi_cursor and if string match -i -r xterm $TERM and __fish_cursor_xterm
 # unset normally
   set -gx fish_pager_color_completion    brwhite --bold
 # set -gx fish_pager_color_secondary     brblack
+
+test -e {$HOME}/.iterm2_shell_integration.fish ; and source {$HOME}/.iterm2_shell_integration.fish
+set -g fish_user_paths "/usr/local/sbin" $fish_user_paths

@@ -1,6 +1,7 @@
 [user]
 	name = Chris Keele
 	email = dev@chriskeele.com
+	useConfigOnly = true
 [core]
 	editor = vim
 	excludesfile = /Users/keele/.gitrc/ignore
@@ -32,41 +33,36 @@
   # args: all normal diff args
   lint = diff --check
 
-  # Append staged changes into the previous commit (good for incremental changes)
+  # Append staged changes into the previous commit (good for incrementally building up a commit)
   # args: -a to add all
   # args: -m to replace message
 	oops = commit --amend --no-edit
 
   # Shows current branch
-  current = "!current(){ cd ${GIT_PREFIX:-.} && head=$(git rev-parse --abbrev-ref HEAD) && [ $head = HEAD ] && echo $(git branch --contains $(git rev-parse --short HEAD)) || echo $head }; current"
+  current = rev-parse --abbrev-ref HEAD
 
-	last   = log -n1
-	latest = log -n5
+  # Recent log entries
+  last   = log -n1 --pretty='format:Commit: %C(yellow)%H%nAuthored by: %C(magenta)%aN %Creset%ar%nCommited by: %Cblue%cN %Creset%cr%n%n%B'
+  latest = log -n5 --pretty='format:%Cgreen***~~***~~***~~***~~***~~***~~***~~***~~***~~***%nCommit: %C(yellow)%H%nAuthored by: %C(magenta)%aN %Creset%ar%nCommited by: %Cblue%cN %Creset%cr%n%n%s%n'
+
+  # Reverts unstaged changes to provided files
+	discard = checkout --force --
+  # Removes staged changes from working index to provided files
+  unstage = reset HEAD
 
   # Goes back the specified number of commits in the current branch's history
   # Good for commiting as you go then rebuilding cleaner commits once you arrive
   # 1st variant keeps interim changes in the working directory, 2nd one stomps on them
   # args: n number of commits, default: 1
 	rollback = "!rollback(){ cd ${GIT_PREFIX:-.} && git reset HEAD~${1:-1} --soft; }; rollback"
-	renege   = "!rollback(){ cd ${GIT_PREFIX:-.} && git reset HEAD~${1:-1} --hard; }; rollback"
+	erase    = "!rollback(){ cd ${GIT_PREFIX:-.} && git reset HEAD~${1:-1} --hard; }; rollback"
 
-	chunk    = "!chunk(){ cd ${GIT_PREFIX:-.} && git add -p && git commit  || git reset }; chunk"
+  # Adds files to index in chunks interactively and commits them after prompting for a message
+	chunk    = add -p
 
-
-[diff]
-  tool = kaleidoscope
-[merge]
-  tool = kaleidoscope
-[difftool]
-  prompt = false
-[mergetool]
-  prompt = false
-[difftool "kaleidoscope"]
-  cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" \"$REMOTE\"
-  trustExitCode = true
-[difftool "kaleidoscope"]
-  cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" \"$REMOTE\"
-  trustExitCode = true
+  # Makes a branch available on the origin remote for the first time,
+  # setting up tracking. Last chance for major history rewriting!
+  publish = push --set-upstream origin
 
 [filter "lfs"]
 	smudge = git-lfs smudge %f
