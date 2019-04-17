@@ -64,14 +64,8 @@
   # setting up tracking. Last chance for major history rewriting!
   publish = push --set-upstream origin
 
-[filter "lfs"]
-	smudge = git-lfs smudge %f
-	required = true
-	clean = git-lfs clean %f
+  alias = "!alias(){ git config --get-regexp \"^alias.${1}\"; }; alias"
 
-# Colors in form of [foreground, <background>, <format>>] where color can be
-# normal, black, red, gree, yellow, blue, magenta, cyan, or white, and format
-# can be bold, dim, ul, blink, or reverse.
 [color "diff"]
   plain = normal
   meta = bold
@@ -128,3 +122,8 @@
   # header = normal
   # help = normal
   # error = normal
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true

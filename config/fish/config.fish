@@ -18,33 +18,46 @@ set -gx PATH /usr/local/bin $PATH
 set -gx RBENV_ROOT ~/.rbenv
 set -gx PATH $RBENV_ROOT/bin $PATH
 set -gx PATH $RBENV_ROOT/shims $PATH
+status --is-interactive; and source (rbenv init -|psub)
 
 set -gx NODENV_ROOT ~/.nodenv
 set -gx PATH $NODENV_ROOT/bin $PATH
 set -gx PATH $NODENV_ROOT/shims $PATH
+status --is-interactive; and source (nodenv init -|psub)
+
+set -gx PYENV_ROOT ~/.pyenv
+set -gx PATH $PYENV_ROOT/bin $PATH
+set -gx PATH $PYENV_ROOT/shims $PATH
+set -gx PATH ~/.local/bin $PATH
+status --is-interactive; and source (pyenv init -|psub)
+status --is-interactive; and source (pyenv virtualenv-init -|psub)
 
 set -gx EXENV_ROOT ~/.exenv
 set -gx PATH $EXENV_ROOT/bin $PATH
 set -gx PATH $EXENV_ROOT/shims $PATH
+status --is-interactive; and source (exenv init -|psub)
+
+set -gx PGENV_ROOT ~/.pgenv
+set -gx PATH $PGENV_ROOT/bin $PATH
+set -gx PATH $PGENV_ROOT/pgsql/bin $PATH
 
 set -gx MIX_HOME ~/.mix
 
+set -gx ASDF_ROOT $HOME/.config/asdf
+set -gx ASDF_DATA_DIR $ASDF_ROOT/plugins
+set -gx ASDF_CONFIG_FILE $ASDF_ROOT/config.rc
+
+set -gx PATH $ASDF_ROOT/bin $PATH
+set -gx PATH $ASDF_ROOT/shims $PATH
+
+# Personal binaries
 set -gx PATH $HOME/bin $PATH
 set -gx PATH $MIX_HOME/escripts $PATH
+
+# Dir-local binaries
 # set -gx PATH './node_modules/.bin' PATH
 set -gx PATH './exe' $PATH
 set -gx PATH './bin' $PATH
-
-set -gx ATOM_PATH /Applications
-
-
-#
-# VIM mode
-#
-
-fish_vi_key_bindings
-fish_vi_cursor and if string match -i -r xterm $TERM and __fish_cursor_xterm
-bind -M insert -m default \e\[A vim-redraw up-or-search
 
 
 #
@@ -104,5 +117,14 @@ bind -M insert -m default \e\[A vim-redraw up-or-search
   set -gx fish_pager_color_completion    brwhite --bold
 # set -gx fish_pager_color_secondary     brblack
 
-test -e {$HOME}/.iterm2_shell_integration.fish ; and source {$HOME}/.iterm2_shell_integration.fish
 set -g fish_user_paths "/usr/local/sbin" $fish_user_paths
+
+# tabtab source for serverless package
+# uninstall by removing these lines or running `tabtab uninstall serverless`
+[ -f /home/keele/projects/knock/apps/lambda/units-service/node_modules/tabtab/.completions/serverless.fish ]; and . /home/keele/projects/knock/apps/lambda/units-service/node_modules/tabtab/.completions/serverless.fish
+# tabtab source for sls package
+# uninstall by removing these lines or running `tabtab uninstall sls`
+[ -f /home/keele/projects/knock/apps/lambda/units-service/node_modules/tabtab/.completions/sls.fish ]; and . /home/keele/projects/knock/apps/lambda/units-service/node_modules/tabtab/.completions/sls.fish
+# tabtab source for slss package
+# uninstall by removing these lines or running `tabtab uninstall slss`
+[ -f /home/keele/projects/knock/apps/lambda/units-service/node_modules/tabtab/.completions/slss.fish ]; and . /home/keele/projects/knock/apps/lambda/units-service/node_modules/tabtab/.completions/slss.fish
