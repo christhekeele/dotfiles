@@ -64,3 +64,6 @@
 [submodule "vim/plugins/vim-elixir"]
 	path = vim/plugins/vim-elixir
 	url = https://github.com/elixir-lang/vim-elixir.git
+[submodule "config/asdf"]
+	path = config/asdf
+	url = https://github.com/asdf-vm/asdf.git

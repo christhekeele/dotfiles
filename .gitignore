@@ -33,9 +33,3 @@ vendor/bundle
 .db_backup/*
 .pryrc
 *.swp
-
-!config/
-config/*
-!config/fish/
-config/fish/*
-!config/fish/config.fish
