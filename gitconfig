@@ -24,11 +24,10 @@
   rebase = preserve
 [fetch]
   prune = true
+[commit]
+	cleanup = scissors
 
 [alias]
-  # Remember all aliases expand to preserve the original arguments, so in most cases
-  # the options for the root command can be provided to the alias.
-
   # Check for whitespace errors:
   # args: all normal diff args
   lint = diff --check
@@ -41,14 +40,19 @@
   # Shows current branch
   current = rev-parse --abbrev-ref HEAD
 
-  # Recent log entries
+  # Shows sha of branch
+  # sha = rev-parse
+
   last   = log -n1 --pretty='format:Commit: %C(yellow)%H%nAuthored by: %C(magenta)%aN %Creset%ar%nCommited by: %Cblue%cN %Creset%cr%n%n%B'
-  latest = log -n5 --pretty='format:%Cgreen***~~***~~***~~***~~***~~***~~***~~***~~***~~***%nCommit: %C(yellow)%H%nAuthored by: %C(magenta)%aN %Creset%ar%nCommited by: %Cblue%cN %Creset%cr%n%n%s%n'
+  latest = log -n5 --pretty='format:%Cgreen---------------------- >8 ----------------------%nCommit: %C(yellow)%H%nAuthored by: %C(magenta)%aN %Creset%ar%nCommited by: %Cblue%cN %Creset%cr%n%n%s%n'
 
   # Reverts unstaged changes to provided files
 	discard = checkout --force --
   # Removes staged changes from working index to provided files
   unstage = reset HEAD
+
+  # Shows SHA of common commit between two branches
+  ancestor = merge-base --octopus
 
   # Goes back the specified number of commits in the current branch's history
   # Good for commiting as you go then rebuilding cleaner commits once you arrive
@@ -57,14 +61,11 @@
 	rollback = "!rollback(){ cd ${GIT_PREFIX:-.} && git reset HEAD~${1:-1} --soft; }; rollback"
 	erase    = "!rollback(){ cd ${GIT_PREFIX:-.} && git reset HEAD~${1:-1} --hard; }; rollback"
 
-  # Adds files to index in chunks interactively and commits them after prompting for a message
-	chunk    = add -p
-
-  # Makes a branch available on the origin remote for the first time,
-  # setting up tracking. Last chance for major history rewriting!
-  publish = push --set-upstream origin
-
+  # Displays alias information
   alias = "!alias(){ git config --get-regexp \"^alias.${1}\"; }; alias"
+
+  # Finds the branches the given reference exists in
+  contains = "!contains(){ git fetch && git rev-parse ${1:-HEAD} | xargs git branch -r --contains; }; contains"
 
 [color "diff"]
   plain = normal
@@ -122,8 +123,3 @@
   # header = normal
   # help = normal
   # error = normal
-[filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
