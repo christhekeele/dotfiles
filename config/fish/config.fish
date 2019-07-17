@@ -33,6 +33,20 @@ set -gx PATH $MIX_HOME/escripts $PATH
 set -gx PATH './exe' $PATH
 set -gx PATH './bin' $PATH
 
+set -gx ERL_AFLAGS "-kernel shell_history enabled"
+
+#
+# FISH
+#
+if status --is-login
+  function hybrid_bindings --description "Vi-style bindings that inherit emacs-style bindings in all modes"
+      for mode in default insert visual
+          fish_default_key_bindings -M $mode
+      end
+      fish_vi_key_bindings --no-erase
+  end
+end
+set -g fish_key_bindings fish_hybrid_key_bindings
 
 #
 # Colors
@@ -80,7 +94,6 @@ set -gx PATH './bin' $PATH
   set -gx fish_color_user               magenta --italics
 # set -gx fish_color_valid_path         --underline
   set -gx fish_color_valid_path         --italics
-
 # set -gx fish_pager_color_description   B3A06D yellow
   set -gx fish_pager_color_description   brmagenta --italics
 # set -gx fish_pager_color_prefix        white --bold --underline
@@ -92,6 +105,8 @@ set -gx PATH './bin' $PATH
 # set -gx fish_pager_color_secondary     brblack
 
 set -g fish_user_paths "/usr/local/sbin" $fish_user_paths
+
+source ~/.config/asdf/asdf.fish
 
 # tabtab source for serverless package
 # uninstall by removing these lines or running `tabtab uninstall serverless`
