@@ -15,32 +15,6 @@ end
 
 set -gx PATH /usr/local/bin $PATH
 
-set -gx RBENV_ROOT ~/.rbenv
-set -gx PATH $RBENV_ROOT/bin $PATH
-set -gx PATH $RBENV_ROOT/shims $PATH
-status --is-interactive; and source (rbenv init -|psub)
-
-set -gx NODENV_ROOT ~/.nodenv
-set -gx PATH $NODENV_ROOT/bin $PATH
-set -gx PATH $NODENV_ROOT/shims $PATH
-status --is-interactive; and source (nodenv init -|psub)
-
-set -gx PYENV_ROOT ~/.pyenv
-set -gx PATH $PYENV_ROOT/bin $PATH
-set -gx PATH $PYENV_ROOT/shims $PATH
-set -gx PATH ~/.local/bin $PATH
-status --is-interactive; and source (pyenv init -|psub)
-status --is-interactive; and source (pyenv virtualenv-init -|psub)
-
-set -gx EXENV_ROOT ~/.exenv
-set -gx PATH $EXENV_ROOT/bin $PATH
-set -gx PATH $EXENV_ROOT/shims $PATH
-status --is-interactive; and source (exenv init -|psub)
-
-set -gx PGENV_ROOT ~/.pgenv
-set -gx PATH $PGENV_ROOT/bin $PATH
-set -gx PATH $PGENV_ROOT/pgsql/bin $PATH
-
 set -gx MIX_HOME ~/.mix
 
 set -gx ASDF_ROOT $HOME/.config/asdf
