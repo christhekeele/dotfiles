@@ -21,7 +21,7 @@
 [branch]
   autosetuprebase = always
 [pull]
-  rebase = preserve
+  rebase = merges
 [fetch]
   prune = true
 [commit]
