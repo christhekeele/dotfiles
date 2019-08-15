@@ -11,6 +11,7 @@ envs/*.env
 .yardoc
 .zeus.sock
 _yardoc
+config/asdf
 cookbooks
 coverage
 db/*.sqlite*

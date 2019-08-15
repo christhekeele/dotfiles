@@ -25,22 +25,22 @@ function fish_right_prompt --description 'Write out the prompt'
     git status --porcelain --ignore-submodules=none | while read --delimiter "\n" -l line
 
       # Compute deletions
-      string match -q -r "^D[\sMT]\s*" $line          && set deletions_staged (math $deletions_staged + 1)
-      string match -q -r "^[\sACMRT]D\s*" $line       && set deletions_unstaged (math $deletions_unstaged + 1)
-      string match -q -r "^D[DU]\s*" $line            && set deletions_ours (math $deletions_ours + 1)
-      string match -q -r "^[DU]D\s*" $line            && set deletions_theirs (math $deletions_theirs + 1)
+      string match -q -r "^D[\sMT]\s*" $line;          and set deletions_staged (math $deletions_staged + 1)
+      string match -q -r "^[\sACMRT]D\s*" $line;       and set deletions_unstaged (math $deletions_unstaged + 1)
+      string match -q -r "^D[DU]\s*" $line;            and set deletions_ours (math $deletions_ours + 1)
+      string match -q -r "^[DU]D\s*" $line;            and set deletions_theirs (math $deletions_theirs + 1)
 
       # Compute additions
-      string match -q -r "^[AC][\sDMT]\s*" $line      && set additions_staged (math $additions_staged + 1)
-      string match -q -r "^\?\?\s*" $line             && set additions_unstaged (math $additions_unstaged + 1)
-      string match -q -r "^A[AU]\s*" $line            && set additions_ours (math $additions_ours + 1)
-      string match -q -r "^[AU]A\s*" $line            && set additions_theirs (math $additions_theirs + 1)
+      string match -q -r "^[AC][\sDMT]\s*" $line;      and set additions_staged (math $additions_staged + 1)
+      string match -q -r "^\?\?\s*" $line;             and set additions_unstaged (math $additions_unstaged + 1)
+      string match -q -r "^A[AU]\s*" $line;            and set additions_ours (math $additions_ours + 1)
+      string match -q -r "^[AU]A\s*" $line;            and set additions_theirs (math $additions_theirs + 1)
 
       # Compute modifications
-      string match -q -r "^[MRT][\sDMT]\s*" $line     && set modifications_staged (math $modifications_staged + 1)
-      string match -q -r "^[\sACMDRT][MRT]\s*" $line  && set modifications_unstaged (math $modifications_unstaged + 1)
-      string match -q -r "^U.\s*" $line               && set modifications_ours (math $modifications_ours + 1)
-      string match -q -r "^.U\s*" $line               && set modifications_theirs (math $modifications_theirs + 1)
+      string match -q -r "^[MRT][\sDMT]\s*" $line;     and set modifications_staged (math $modifications_staged + 1)
+      string match -q -r "^[\sACMDRT][MRT]\s*" $line;  and set modifications_unstaged (math $modifications_unstaged + 1)
+      string match -q -r "^U.\s*" $line;               and set modifications_ours (math $modifications_ours + 1)
+      string match -q -r "^.U\s*" $line;               and set modifications_theirs (math $modifications_theirs + 1)
 
     end
 
@@ -49,7 +49,7 @@ function fish_right_prompt --description 'Write out the prompt'
 
     # Render deletions
     if test $changes -gt 0
-      if test $deletions_staged -gt 0 && test $deletions_unstaged -gt 0
+      if test $deletions_staged -gt 0; and test $deletions_unstaged -gt 0
         echo -n -s (set_color yellow) "❮" (set_color normal)
       else if test $deletions_staged -gt 0
         echo -n -s (set_color green) "❮" (set_color normal)
@@ -64,7 +64,7 @@ function fish_right_prompt --description 'Write out the prompt'
 
     # Render additions
     if test $changes -gt 0
-      if test $additions_staged -gt 0 && test $additions_unstaged -gt 0
+      if test $additions_staged -gt 0; and test $additions_unstaged -gt 0
         echo -n -s (set_color yellow) "❮" (set_color normal)
       else if test $additions_staged -gt 0
         echo -n -s (set_color green) "❮" (set_color normal)
@@ -79,7 +79,7 @@ function fish_right_prompt --description 'Write out the prompt'
 
     # Render modifications
     if test $changes -gt 0
-      if test $modifications_staged -gt 0 && test $modifications_unstaged -gt 0
+      if test $modifications_staged -gt 0; and test $modifications_unstaged -gt 0
         echo -n -s (set_color yellow) "❮" (set_color normal)
       else if test $modifications_staged -gt 0
         echo -n -s (set_color green) "❮" (set_color normal)

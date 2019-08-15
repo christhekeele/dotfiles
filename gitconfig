@@ -66,6 +66,7 @@
 
   # Finds the branches the given reference exists in
   contains = "!contains(){ git fetch && git rev-parse ${1:-HEAD} | xargs git branch -r --contains; }; contains"
+	cherrypick = cherry-pick
 
 [color "diff"]
   plain = normal

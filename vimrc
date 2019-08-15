@@ -6,8 +6,16 @@ augroup reload_vimrc {
   autocmd BufWritePost $MYVIMRC source $MYVIMRC
 augroup END }
 
+" Show current command
+set showcmd
+" Set system bells for command timeout
+set timeout timeoutlen=3000 ttimeoutlen=100
+
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
+
+" navigate over virtual spaces past line ends
+set virtualedit=all
 
 " move through wrapped lines
 nnoremap j gj
@@ -37,6 +45,7 @@ set wildignore=*.swp,*.bak,*.pyc,*.class
 set title                " change the terminal's title
 set visualbell           " don't beep
 set noerrorbells         " don't beep
+set t_vb=                " plz don't beep
 
 " Use syntax highlighting
 syntax on
@@ -95,20 +104,6 @@ autocmd FileType gitcommit setlocal spell
 
 map  <S-F1> <S-CR>
 map! <S-F1> <S-CR>
-
-" Bind shift-enter to esc
-inoremap <S-CR> <Esc>
-vnoremap <S-CR> <Esc>
-cnoremap <S-CR> <Esc>
-nnoremap <S-CR> <Esc>
-
-" Bind ✠ (U+2720) to esc
-"  so iTerm can emit it from shift-enter
-"  during ssh vim sessions
-inoremap ✠ <Esc>
-vnoremap ✠ <Esc>
-cnoremap ✠ <Esc>
-nnoremap ✠ <Esc>
 
 " Reduce number of hit-enter prompts
 set cmdheight=2
