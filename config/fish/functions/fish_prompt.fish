@@ -4,16 +4,25 @@ function fish_prompt --description 'Write out the prompt'
 
   # Render username
   switch "$USER"
-  case root toor
+  case root toor # Angry if root
     echo -n -s (set_color red --bold --background=brblack) 'ROOT' (set_color normal)
-  case '*'
+  case keele # Normal if me
     echo -n -s (set_color magenta --bold --dim) $USER (set_color normal)
+  case '*' # Blue if not
+    echo -n -s (set_color blue --bold --dim) $USER (set_color normal)
   end
 
   echo -n -s (set_color white --dim) @ (set_color normal)
 
   # Render hostname
-  echo -n -s (set_color magenta --bold --dim) (prompt_hostname) (set_color normal)
+
+  set host (prompt_hostname)
+  switch "$host"
+  case vagrant # Blue if VM
+    echo -n -s (set_color blue --bold --dim) 'vagrant' (set_color normal)
+  case '*' # Normal if not
+    echo -n -s (set_color magenta --bold --dim) $host (set_color normal)
+  end
 
   echo -n -s ' '
 

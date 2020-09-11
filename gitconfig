@@ -16,8 +16,10 @@
 [merge]
 	conflictstyle = diff3
   ff = false
+	tool = diffmerge
 [diff]
   mnemonicprefix = true
+	tool = diffmerge
 [branch]
   autosetuprebase = always
 [pull]

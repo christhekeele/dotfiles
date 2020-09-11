@@ -9,35 +9,70 @@ else
 end
 
 
-#
-# Bin paths
-#
+####
+# CONFIG
+###
 
-set -gx PATH /usr/local/bin $PATH
+if not set -q XDG_CONFIG_HOME;
+  set -gx XDG_CONFIG_HOME "$HOME/.config"
+end
+set -gx CONFIG_ROOT $XDG_CONFIG_HOME
 
-set -gx MIX_HOME ~/.mix
+# VAGRANT
+set -gx VAGRANT_HOME $CONFIG_ROOT/vagrant
 
-set -gx ASDF_ROOT $HOME/.config/asdf
-set -gx ASDF_DATA_DIR $ASDF_ROOT/plugins
+# ASDF
+set -gx ASDF_ROOT $CONFIG_ROOT/asdf
+set -gx ASDF_SOURCE $ASDF_ROOT/asdf.fish
 set -gx ASDF_CONFIG_FILE $ASDF_ROOT/config.rc
+set -gx ASDF_DATA_DIR $ASDF_ROOT/data
 
-set -gx PATH $ASDF_ROOT/bin $PATH
-set -gx PATH $ASDF_ROOT/shims $PATH
-
-# Personal binaries
-set -gx PATH $HOME/bin $PATH
-set -gx PATH $MIX_HOME/escripts $PATH
-
-# Dir-local binaries
-# set -gx PATH './node_modules/.bin' PATH
-set -gx PATH './exe' $PATH
-set -gx PATH './bin' $PATH
-
+# ELIXIR
+set -gx MIX_HOME $HOME/.mix
 set -gx ERL_AFLAGS "-kernel shell_history enabled"
 
-#
-# FISH
-#
+####
+# PATH
+##
+set -l paths
+
+set paths "/usr/local/bin" $paths
+set paths "/usr/local/sbin" $paths
+
+# ASDF
+
+set paths $ASDF_ROOT/bin $paths
+set paths $ASDF_DATA_DIR/shims $paths
+
+# Personal binaries
+set paths $HOME/bin $paths
+
+# ELIXIR
+set paths $MIX_HOME/escripts $paths
+
+for path in $paths
+  if test -e $path
+    set -g fish_user_paths $path $fish_user_paths
+  end
+end
+
+# Dir-local binaries
+# set -g fish_user_paths './node_modules/.bin' $fish_user_paths
+set -g fish_user_paths './exe' $fish_user_paths
+set -g fish_user_paths './bin' $fish_user_paths
+
+
+####
+# COMPILERS
+##
+set -gx LDFLAGS "-L/usr/local/opt/openssl@1.1/lib"
+set -gx CPPFLAGS "-I/usr/local/opt/openssl@1.1/include"
+
+####
+# FISH SETUP
+##
+
+# VI mode
 if status --is-login
   function hybrid_bindings --description "Vi-style bindings that inherit emacs-style bindings in all modes"
       for mode in default insert visual
@@ -48,10 +83,7 @@ if status --is-login
 end
 set -g fish_key_bindings fish_hybrid_key_bindings
 
-#
 # Colors
-#
-
 # set -gx fish_color_autosuggestion     555 brblack
   set -gx fish_color_autosuggestion     555 brblack --italics
 # set -gx fish_color_command            --bold
@@ -104,16 +136,8 @@ set -g fish_key_bindings fish_hybrid_key_bindings
   set -gx fish_pager_color_completion    brwhite --bold
 # set -gx fish_pager_color_secondary     brblack
 
-set -g fish_user_paths "/usr/local/sbin" $fish_user_paths
+####
+# SOURCE THINGS
+##
 
-source ~/.config/asdf/asdf.fish
-
-# tabtab source for serverless package
-# uninstall by removing these lines or running `tabtab uninstall serverless`
-[ -f /home/keele/projects/knock/apps/lambda/units-service/node_modules/tabtab/.completions/serverless.fish ]; and . /home/keele/projects/knock/apps/lambda/units-service/node_modules/tabtab/.completions/serverless.fish
-# tabtab source for sls package
-# uninstall by removing these lines or running `tabtab uninstall sls`
-[ -f /home/keele/projects/knock/apps/lambda/units-service/node_modules/tabtab/.completions/sls.fish ]; and . /home/keele/projects/knock/apps/lambda/units-service/node_modules/tabtab/.completions/sls.fish
-# tabtab source for slss package
-# uninstall by removing these lines or running `tabtab uninstall slss`
-[ -f /home/keele/projects/knock/apps/lambda/units-service/node_modules/tabtab/.completions/slss.fish ]; and . /home/keele/projects/knock/apps/lambda/units-service/node_modules/tabtab/.completions/slss.fish
+source $ASDF_SOURCE
