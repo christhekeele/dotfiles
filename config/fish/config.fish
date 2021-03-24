@@ -26,6 +26,7 @@ set -gx ASDF_ROOT $CONFIG_ROOT/asdf
 set -gx ASDF_SOURCE $ASDF_ROOT/asdf.fish
 set -gx ASDF_CONFIG_FILE $ASDF_ROOT/config.rc
 set -gx ASDF_DATA_DIR $ASDF_ROOT/data
+set -gx ASDF_DOWNLOAD_PATH $ASDF_ROOT/downloads
 
 # ELIXIR
 set -gx MIX_HOME $HOME/.mix
