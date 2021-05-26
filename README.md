@@ -6,6 +6,18 @@ dotfiles
 Installation
 ------------
 
+ex:
+    xcode-select --install
+    install brew
+    brew install git rcm
+    git clone dotfilesdir
+    rcup -v -d dotfilesdir
+    brew install fish
+    sudo chsh -s $(which fish) $(whoami)
+    git clone asdf ~/.config/asdf
+    for plugin in R awscli cmake elasticsearch elixir elm erlang github-cli golang haxe imagemagick jq julia lua mongodb nodejs postgres python rabbitmq redis ruby rust sqlite terraform; asdf plugin add $plugin; end
+    brew install curl ffmpeg ncurses pandoc sloc zlib
+
 Requirements: `git`, `rcm`, `sudo` access
 
 Get my dotfiles à la:
