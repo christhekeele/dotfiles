@@ -57,7 +57,6 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "material-icon-theme.showWelcomeMessage": false,
-  "workbench.colorTheme": "Predawn Twilight",
   "gitlens.codeLens.recentChange.enabled": false,
   "gitlens.currentLine.pullRequests.enabled": false,
   "gitlens.statusBar.pullRequests.enabled": false,
@@ -102,5 +101,8 @@
     "yaml",
     "yml"
   ],
-  "workbench.editor.untitled.hint": "hidden"
+  "workbench.editor.untitled.hint": "hidden",
+  "workbench.iconTheme": "vscode-icons",
+  "workbench.colorTheme": "Predawn Twilight",
+  "vsicons.dontShowNewVersionMessage": true
 }

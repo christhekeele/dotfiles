@@ -52,6 +52,9 @@ set paths $HOME/bin $paths
 # ELIXIR
 set paths $MIX_HOME/escripts $paths
 
+# SnowSQL
+set paths '/Applications/SnowSQL.app/Contents/MacOS' $paths
+
 for path in $paths
   if test -e $path
     set -g fish_user_paths $path $fish_user_paths

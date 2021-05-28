@@ -4,10 +4,11 @@ Vagrant.configure('2') do |config|
 
   config.vm.provision "shell", inline: <<-SCRIPT
     set -e
+    set -x
 
     echo Becoming vagrant user...
     export USER=vagrant
-    su $USER -
+    su $USER
     export GROUP=vagrant
     export HOME=/home/$USER
 
@@ -24,6 +25,13 @@ Vagrant.configure('2') do |config|
     sudo apt-get -y install fish > /dev/null 2>&1
     chsh vagrant -s /usr/bin/fish
 
+    echo Installing version manager...
+    if [[ ! -d $CONFIG_DIR/asdf ]]; then
+      git clone https://github.com/asdf-vm/asdf.git $CONFIG_DIR/asdf > /dev/null 2>&1
+    fi
+    sudo apt-get -y install build-essential > /dev/null 2>&1
+    sudo apt-get -y install unzip > /dev/null 2>&1
+
     echo Installing dotfile manager...
     wget -qO - https://apt.thoughtbot.com/thoughtbot.gpg.key | sudo apt-key add - > /dev/null 2>&1
     echo "deb https://apt.thoughtbot.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/thoughtbot.list  > /dev/null 2>&1
@@ -33,14 +41,15 @@ Vagrant.configure('2') do |config|
     echo Linking dotfiles...
     rcup > /dev/null 2>&1
 
-    echo Installing version manager...
-    git clone https://github.com/asdf-vm/asdf.git $CONFIG_DIR/asdf --branch v0.7.8 > /dev/null 2>&1
-    sudo apt-get -y install build-essential > /dev/null 2>&1
-    sudo apt-get -y install unzip > /dev/null 2>&1
-
     echo Owning home...
     sudo chown -R $USER:$GROUP $HOME
 
   SCRIPT
+
+  config.trigger.after :up do |trigger|
+    # Ensure any PATH modifications made during provisioning
+    #  are applied to login shells
+    trigger.run_remote = {inline: "echo PATH=\"$PATH\":\$PATH >> /etc/environment"}
+  end
 
 end
