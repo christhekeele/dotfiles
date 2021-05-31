@@ -109,5 +109,12 @@ function fish_right_prompt --description 'Write out the prompt'
 
     echo -n -s ' '
 
+  else
+    # Not in a git dir; display static chevrons
+    echo -n -s (set_color magenta --dim) "❮❮❮" (set_color normal)
   end
+
+  # show last command run duration
+  echo -n -s (set_color white --dim) (cmd_duration_readable) (set_color normal)
+
 end
