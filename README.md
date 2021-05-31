@@ -7,16 +7,54 @@ Installation
 ------------
 
 ex:
+    install chrome
+        sync
+            except bookmarks, history, theme
+    system prefs
+        default browser
+        unbind spotlight
+        touchpad change scroll direction
+        touchpad increase sensitivity
+        keyboard lights
+        touchbar -> function keys
+        replace siri in touchbar with screenshot key
+        set computername/hostname
+    install alfred
+        license
+        shortcut
+        extra files
+    install daisydisk
+        license
+    install menumeters, icleanmemory, divvy
+    install iterm, vscode
     xcode-select --install
     install brew
     brew install git rcm
-    git clone dotfilesdir
-    rcup -v -d dotfilesdir
+    ssh keys
+    git clone dotfilessrc
+    ln -s dofilessrc ~/.dotfiles
+    rcup -v -d ~/.dotfiles
     brew install fish
-    sudo chsh -s $(which fish) $(whoami)
+    sudo cat $(which fish) >> /etc/shells
+    chsh -s $(which fish)
     git clone asdf ~/.config/asdf
-    for plugin in R awscli cmake elasticsearch elixir elm erlang github-cli golang haxe imagemagick jq julia lua mongodb nodejs postgres python rabbitmq redis ruby rust sqlite terraform; asdf plugin add $plugin; end
-    brew install curl ffmpeg ncurses pandoc sloc zlib
+    brew install gcc xz
+    for plugin in R awscli cmake elasticsearch elixir elm erlang github-cli golang haxe imagemagick jq julia lua mongodb mysql nodejs postgres python rabbitmq redis ruby rust sqlite terraform; asdf plugin add $plugin; end
+    brew install curl ffmpeg pandoc sloc zlib
+    brew tap homebrew/cask-fonts
+    brew install --cask font-fira-code
+    point iterm to config file
+    restart iterm
+    install docker
+    brew install gnupg
+    asdf install nodejs 15.14.0
+    asdf global nodejs 15.14.0
+    brew tap hashicorp/tap
+    brew install vagrant
+    brew tap virtualbox
+    brew install virtualbox
+    install slack, teams, spotify, zoom, tableplus
+
 
 Requirements: `git`, `rcm`, `sudo` access
 
