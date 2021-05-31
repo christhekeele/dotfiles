@@ -1,7 +1,12 @@
 function fish_right_prompt --description 'Write out the prompt'
+
+  echo -n -s ' '
+
+  # Render right chevrons
+
   if git rev-parse --is-inside-work-tree > /dev/null 2>&1
 
-    echo -n -s ' '
+    # Use git-index color-coded chevrons
 
     ####
     # Index status
@@ -92,6 +97,12 @@ function fish_right_prompt --description 'Write out the prompt'
       echo -n -s (set_color magenta --dim) "❮" (set_color normal)
     end
 
+  else
+    # Not in a git dir; display static chevrons
+    echo -n -s (set_color magenta --dim) "❮❮❮" (set_color normal)
+  end
+
+  if git rev-parse --is-inside-work-tree > /dev/null 2>&1
     echo -n -s ' '
 
     ####
@@ -106,14 +117,9 @@ function fish_right_prompt --description 'Write out the prompt'
     else
       echo -n -s (set_color red --bold --italics --background=brblack) $short_sha (set_color normal)
     end
-
-    echo -n -s ' '
-
-  else
-    # Not in a git dir; display static chevrons
-    echo -n -s (set_color magenta --dim) "❮❮❮" (set_color normal)
   end
 
+  echo -n -s ' '
   # show last command run duration
   echo -n -s (set_color white --dim) (cmd_duration_readable) (set_color normal)
 
