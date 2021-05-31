@@ -51,13 +51,15 @@ set paths $HOME/bin $paths
 
 # ELIXIR
 set paths $MIX_HOME/escripts $paths
+# make-like build tool for ML deps
+set paths $HOME/.bazel/bin $paths
 
 # SnowSQL
 set paths '/Applications/SnowSQL.app/Contents/MacOS' $paths
 
 for path in $paths
   if test -e $path
-    set -g fish_user_paths $path $fish_user_paths
+    contains $path $fish_user_paths; or set -Ua fish_user_paths $path
   end
 end
 
@@ -66,6 +68,8 @@ end
 set -g fish_user_paths './exe' $fish_user_paths
 set -g fish_user_paths './bin' $fish_user_paths
 
+# Try to shim asdf on every dir navigation
+# direnv hook fish | source
 
 ####
 # COMPILERS
