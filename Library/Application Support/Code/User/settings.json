@@ -65,7 +65,6 @@
     "**/.elixir_ls": true,
     "**/node_modules": true
   },
-  "window.zoomLevel": 1,
   "workbench.editorAssociations": [
     {
       "viewType": "jupyter.notebook.ipynb",
@@ -102,7 +101,9 @@
     "yml"
   ],
   "workbench.editor.untitled.hint": "hidden",
-  "workbench.iconTheme": "vscode-icons",
   "workbench.colorTheme": "Predawn Twilight",
-  "vsicons.dontShowNewVersionMessage": true
+  "vsicons.dontShowNewVersionMessage": true,
+  "material-icon-theme.hidesExplorerArrows": false,
+  "workbench.iconTheme": "vs-minimal",
+  "editor.tabSize": 2
 }
