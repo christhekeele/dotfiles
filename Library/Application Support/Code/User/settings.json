@@ -46,7 +46,6 @@
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "prettier.disableLanguages": ["markdown"],
   "editor.fontWeight": "600",
   "files.associations": {
     "*.exs": "elixir",
@@ -102,8 +101,9 @@
   ],
   "workbench.editor.untitled.hint": "hidden",
   "workbench.colorTheme": "Predawn Twilight",
-  "vsicons.dontShowNewVersionMessage": true,
   "material-icon-theme.hidesExplorerArrows": false,
   "workbench.iconTheme": "vs-minimal",
-  "editor.tabSize": 2
+  "editor.tabSize": 2,
+  "vsicons.dontShowNewVersionMessage": true,
+  "window.zoomLevel": 1
 }

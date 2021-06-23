@@ -1,5 +1,6 @@
 function fish_right_prompt --description 'Write out the prompt'
 
+  set last $status
   echo -n -s ' '
 
   # Render right chevrons
@@ -120,7 +121,12 @@ function fish_right_prompt --description 'Write out the prompt'
   end
 
   echo -n -s ' '
-  # show last command run duration
-  echo -n -s (set_color white --dim) (cmd_duration_readable) (set_color normal)
 
+  # show last command run duration
+
+  if test $last -gt 0
+    echo -n -s (set_color white --background="red") (cmd_duration_readable) (set_color normal)
+  else
+    echo -n -s (set_color white --dim) (cmd_duration_readable) (set_color normal)
+  end
 end

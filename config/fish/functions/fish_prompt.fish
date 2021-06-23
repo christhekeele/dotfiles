@@ -31,11 +31,11 @@ function fish_prompt --description 'Write out the prompt'
 
   # Render left chevron buffer
   echo -n -s ' '
-  if test $last -gt 0
-    echo -n -s (set_color magenta) "❯❯❯" (set_color normal)
-  else
+  # if test $last -gt 0
+  #   echo -n -s (set_color magenta) "❯❯❯" (set_color normal)
+  # else
     echo -n -s (set_color magenta --dim) "❯❯❯" (set_color normal)
-  end
+  # end
   echo -n -s ' '
 
 end
