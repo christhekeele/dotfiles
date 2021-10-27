@@ -64,12 +64,9 @@
     "**/.elixir_ls": true,
     "**/node_modules": true
   },
-  "workbench.editorAssociations": [
-    {
-      "viewType": "jupyter.notebook.ipynb",
-      "filenamePattern": "*.ipynb"
-    }
-  ],
+  "workbench.editorAssociations": {
+    "*.ipynb": "jupyter.notebook.ipynb"
+  },
   "cSpell.enableFiletypes": [
     "!python",
     "!elixir",
@@ -105,5 +102,14 @@
   "workbench.iconTheme": "vs-minimal",
   "editor.tabSize": 2,
   "vsicons.dontShowNewVersionMessage": true,
-  "window.zoomLevel": 1
+  "security.workspace.trust.enabled": false,
+  "[typescript]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  },
+  "[yaml]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.suggestSelection": "first",
+  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+  "javascript.updateImportsOnFileMove.enabled": "always"
 }

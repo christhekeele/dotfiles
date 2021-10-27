@@ -1,10 +1,10 @@
 function fish_right_prompt --description 'Write out the prompt'
-  
+
   echo -n -s ' '
 
   set -l reset_color normal
   set -l background_reset_color normal
-  
+
   ####
   # GIT INDEX status
   ##
@@ -61,7 +61,7 @@ function fish_right_prompt --description 'Write out the prompt'
     end
 
     # Number of all changes
-    set -l changes (math $deletions_staged + $deletions_unstaged +  $additions_staged + $additions_unstaged + $modifications_staged + $modifications_unstaged)
+    set -l changes (math $deletions_staged + $deletions_unstaged + $additions_staged + $additions_unstaged + $modifications_staged + $modifications_unstaged)
 
     # Render deletions
     if test $changes -gt 0
@@ -198,11 +198,11 @@ function fish_right_prompt --description 'Write out the prompt'
     echo -n -s \
       (set_color $foreground_status_color --background=$background_status_failed_color)\
       (cmd_duration_readable)\
-      (set_color $background_status_succeeded_color)
+      (set_color $background_reset_color)
   else
     echo -n -s \
       (set_color $foreground_status_color --dim --background=$background_status_succeeded_color)\
       (cmd_duration_readable)\
-      (set_color $background_status_succeeded_color)
+      (set_color $background_reset_color)
   end
 end
