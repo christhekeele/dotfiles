@@ -53,6 +53,7 @@ ex:
     brew install vagrant
     brew tap virtualbox
     brew install virtualbox
+    brew install ack
     install slack, teams, spotify, zoom, tableplus
 
 
