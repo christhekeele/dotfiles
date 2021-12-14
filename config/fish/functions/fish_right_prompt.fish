@@ -1,4 +1,5 @@
 function fish_right_prompt --description 'Write out the prompt'
+  set -l last_command_status $status
 
   echo -n -s ' '
 
@@ -194,7 +195,9 @@ function fish_right_prompt --description 'Write out the prompt'
   set -l background_status_succeeded_color $background_reset_color
 
   # show last command run duration colored by exit code
-  if test $status -gt 0
+  echo -n -s '𒄶 '
+
+  if test $last_command_status -gt 0
     echo -n -s \
       (set_color $foreground_status_color --background=$background_status_failed_color)\
       (cmd_duration_readable)\
@@ -205,4 +208,5 @@ function fish_right_prompt --description 'Write out the prompt'
       (cmd_duration_readable)\
       (set_color $background_reset_color)
   end
+
 end

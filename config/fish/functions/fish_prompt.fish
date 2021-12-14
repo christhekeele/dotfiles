@@ -6,7 +6,7 @@ function fish_prompt --description 'Write out the prompt'
   set -l ping_duration (ping -t 1 -o google.com | ack -o '(?<=time=)(.*?)(?=\.\d\d\d ms)')
   echo -n -s (set_color $foreground_status_color --dim --background=$background_reset_color)
   echo -n -s $ping_duration
-  echo -n -s 'ms'
+  echo -n -s 'ms ☈'
   echo -n -s (set_color normal)
 
   echo -n -s ' '
