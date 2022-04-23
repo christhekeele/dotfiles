@@ -36,6 +36,16 @@ set -gx ASDF_DOWNLOAD_PATH $ASDF_ROOT/downloads
 set -gx MIX_HOME $HOME/.mix
 set -gx ERL_AFLAGS "-kernel shell_history enabled"
 
+# FLY.IO
+
+set -gx FLY_HOME $HOME/.fly
+
+# POSTGRES
+set -gx PGDATABASE postgres
+set -gx PGUSER postgres
+set -gx PSQL_ROOT $CONFIG_ROOT/psql
+set -gx PSQLRC $PSQL_ROOT/psqlrc
+
 ####
 # PATH
 ##
@@ -48,6 +58,10 @@ set paths "/usr/local/sbin" $paths
 
 set paths $ASDF_ROOT/bin $paths
 set paths $ASDF_DATA_DIR/shims $paths
+
+# FLY.IO
+
+set paths $FLY_HOME/bin $paths
 
 # Personal binaries
 set paths $HOME/bin $paths

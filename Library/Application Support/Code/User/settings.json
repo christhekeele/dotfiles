@@ -17,18 +17,19 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "cSpell.userWords": [
-    "Upsert",
     "agnostically",
     "backpressure",
     "behaviour",
     "behaviours",
     "debugpy",
+    "interactable",
     "moreso",
     "overrwrite",
     "rabbitmq",
     "runtimes",
     "structlog",
     "unintuitive",
+    "upsert",
     "whiteboarding"
   ],
   "markdown-preview-enhanced.enableTypographer": true,
@@ -49,7 +50,9 @@
   "editor.fontWeight": "600",
   "files.associations": {
     "*.exs": "elixir",
-    "*.config": "text"
+    "*.config": "text",
+    "*.livemd": "markdown",
+    "\\.?env(\\..*?)?$": "shell"
   },
   "python.showStartPage": false,
   "[jsonc]": {
@@ -67,11 +70,7 @@
   "workbench.editorAssociations": {
     "*.ipynb": "jupyter.notebook.ipynb"
   },
-  "cSpell.enableFiletypes": [
-    "!python",
-    "!elixir",
-    "!ruby"
-  ],
+  "cSpell.enableFiletypes": ["!python", "!elixir", "!ruby"],
   "python.languageServer": "Pylance",
   "editor.renderWhitespace": "none",
   "cSpell.enabledLanguageIds": [
@@ -113,5 +112,10 @@
   "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
   "javascript.updateImportsOnFileMove.enabled": "always",
   "python.formatting.provider": "black",
-  "redhat.telemetry.enabled": false
+  "redhat.telemetry.enabled": false,
+  "svg.preview.mode": "svg",
+  "editor.largeFileOptimizations": false,
+  "window.zoomLevel": 1,
+  "editor.wordBasedSuggestions": false,
+  "editor.acceptSuggestionOnEnter": "off"
 }

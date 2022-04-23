@@ -1,0 +1,55 @@
+-- Quiet REPL command output when applying these settings during session start
+\set QUIET 1
+
+
+----
+-- CONFIG
+---
+
+-- Always use unicode encoding for session
+\encoding unicode
+
+-- Display NULL values as something visible, differentiate from empty strings
+\pset null ␀
+
+-- Allow continuing after errors inside transactions in interactive sessions
+\set ON_ERROR_ROLLBACK interactive
+
+-- Tab complete with CAPS keywords
+\set COMP_KEYWORD_CASE upper
+
+-- Keep separate histories per db connection
+\set HISTFILE ~/.config/psql/history- :HOST - :USER - :DBNAME
+
+-- Disable pager as we have a terminal that handles scrolling well
+\pset pager off
+
+-- Show how long each query takes to execute
+\timing
+
+-- Store the same command only once in the history
+\set HISTCONTROL ignoredups
+
+-- Use verbose error display
+\set VERBOSITY verbose
+
+-- Reveal the SQL statements the \d commands use
+\set ECHO_HIDDEN ON
+
+-- Display record k/v pairs per line instead of record tables if not enough room
+\x auto
+
+-- Use unicode boxdrawing characters for rendering tables
+\pset linestyle unicode
+-- Double-thickness for column headers
+\pset unicode_header_linestyle double
+
+
+-- Normal prompt
+\set PROMPT1 '%n@%M %/%x ❯❯❯ '
+-- Input cont prompt
+\set PROMPT2 '%n@%M %/%x ... '
+
+
+-- Re-enable REPL command output
+\unset QUIET
