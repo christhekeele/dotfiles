@@ -1,4 +1,5 @@
 {
+  "editor.stopRenderingLineAfter": -1,
   "explorer.confirmDelete": false,
   "explorer.confirmDragAndDrop": false,
   "editor.fontSize": 14,
@@ -68,7 +69,7 @@
     "**/node_modules": true
   },
   "workbench.editorAssociations": {
-    "*.ipynb": "jupyter.notebook.ipynb"
+    "*.ipynb": "jupyter-notebook"
   },
   "cSpell.enableFiletypes": ["!python", "!elixir", "!ruby"],
   "python.languageServer": "Pylance",
@@ -117,5 +118,10 @@
   "editor.largeFileOptimizations": false,
   "window.zoomLevel": 1,
   "editor.wordBasedSuggestions": false,
-  "editor.acceptSuggestionOnEnter": "off"
+  "editor.acceptSuggestionOnEnter": "off",
+  "editor.guides.bracketPairs": "active",
+  "editor.hover.above": false,
+  "[sql]": {
+    "editor.defaultFormatter": "adpyke.vscode-sql-formatter"
+  }
 }
