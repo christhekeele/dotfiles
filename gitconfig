@@ -8,6 +8,7 @@
 	autocrlf = input
   precomposeunicode = true
   whitespace = tab-in-indent,tabwidth=2
+	fsmonitor = false
 
 [push]
 	default = simple

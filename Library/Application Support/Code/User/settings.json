@@ -1,7 +1,4 @@
 {
-  "[elixir]": {
-    "editor.defaultFormatter": "JakeBecker.elixir-ls"
-  },
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
@@ -20,49 +17,18 @@
   "[yaml]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "cSpell.enableFiletypes": [
-    "!python",
-    "!elixir",
-    "!ruby"
-  ],
-  "cSpell.enabledLanguageIds": [
-    "asciidoc",
-    "c",
-    "css",
-    "git-commit",
-    "graphql",
-    "handlebars",
-    "html",
-    "jade",
-    "json",
-    "jsonc",
-    "latex",
-    "less",
-    "markdown",
-    "plaintext",
-    "pug",
-    "restructuredtext",
-    "scss",
-    "text",
-    "yaml",
-    "yml"
-  ],
-  "cSpell.userWords": [
-    "agnostically",
-    "backpressure",
-    "behaviour",
-    "behaviours",
-    "debugpy",
-    "interactable",
-    "moreso",
-    "overrwrite",
-    "rabbitmq",
-    "runtimes",
-    "structlog",
-    "unintuitive",
-    "upsert",
-    "whiteboarding"
-  ],
+  "[elixir]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "JakeBecker.elixir-ls"
+  },
+  "[phoenix-heex]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "JakeBecker.elixir-ls"
+  },
+  "tailwindCSS.includeLanguages": {
+    "phoenix-heex": "html",
+    "elixir": "html"
+  },
   "editor.acceptSuggestionOnEnter": "off",
   "editor.fontFamily": "FiraCode-Retina",
   "editor.fontLigatures": true,
@@ -72,17 +38,18 @@
   "editor.hover.above": false,
   "editor.largeFileOptimizations": false,
   "editor.renderWhitespace": "none",
-  "editor.stopRenderingLineAfter": -1,
   "editor.suggestSelection": "first",
   "editor.tabSize": 2,
-  "editor.wordBasedSuggestions": false,
+  // "editor.wordBasedSuggestions": false,
   "explorer.confirmDelete": false,
   "explorer.confirmDragAndDrop": false,
   "files.associations": {
     "*.config": "text",
     "*.exs": "elixir",
     "*.livemd": "markdown",
-    "\\.?env(\\..*?)?$": "shell"
+    "*.cheatmd": "markdown",
+    "\\.?env(\\..*?)?$": "shell",
+    "*.heex": "phoenix-heex"
   },
   "files.exclude": {
     "**/.elixir_ls": true,
@@ -97,16 +64,14 @@
   "markdown-preview-enhanced.codeBlockTheme": "twilight.css",
   "markdown-preview-enhanced.enableTypographer": true,
   "markdown-preview-enhanced.frontMatterRenderingOption": "code block",
-  "markdown-preview-enhanced.previewTheme": "monokai.css",
+  "markdown-preview-enhanced.previewTheme": "github-dark.css",
   "markdown-preview-enhanced.revealjsTheme": "night.css",
   "markdown-preview-enhanced.usePandocParser": true,
-  "material-icon-theme.hidesExplorerArrows": false,
-  "material-icon-theme.showWelcomeMessage": false,
   "python.formatting.provider": "black",
   "python.languageServer": "Pylance",
-  "python.showStartPage": false,
   "redhat.telemetry.enabled": false,
   "search.exclude": {
+    "**/_build": true,
     "**/deps": true,
     "**/node_modules": false,
     "node_modules": true
@@ -118,11 +83,16 @@
   "typescript.implementationsCodeLens.enabled": true,
   "typescript.inlayHints.functionLikeReturnTypes.enabled": true,
   "typescript.updateImportsOnFileMove.enabled": "always",
-  "vsicons.dontShowNewVersionMessage": true,
   "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
-  "window.zoomLevel": 1,
-  "workbench.activityBar.visible": false,
+  // "workbench.activityBar.visible": false,
   "workbench.colorCustomizations": {
+    "editorBracketHighlight.foreground1": "#F8F8F8",
+    "editorBracketHighlight.foreground2": "#F8F8F8",
+    "editorBracketHighlight.foreground3": "#F8F8F8",
+    "editorBracketHighlight.foreground4": "#F8F8F8",
+    "editorBracketHighlight.foreground5": "#F8F8F8",
+    "editorBracketHighlight.foreground6": "#F8F8F8",
+    "editorBracketHighlight.unexpectedBracket.foreground": "#F18260",
     "[Community Material Theme Darker High Contrast]": {}
   },
   "workbench.colorTheme": "Predawn Twilight",
@@ -132,5 +102,9 @@
     "*.ipynb": "jupyter-notebook"
   },
   "workbench.iconTheme": "vs-minimal",
-  "workbench.preferredDarkColorTheme": "Predawn Twilight"
+  "workbench.preferredDarkColorTheme": "Predawn Twilight",
+  "editor.bracketPairColorization.independentColorPoolPerBracketType": true,
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }
