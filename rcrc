@@ -1,2 +1,2 @@
-EXCLUDES="*.md"
+EXCLUDES="*.md .gitkeep"
 UNDOTTED="Library"
