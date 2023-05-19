@@ -130,6 +130,5 @@
     "editor.formatOnType": true
   },
   "triggerTaskOnSave.on": false,
-  "git.openRepositoryInParentFolders": "never",
-  "window.zoomLevel": 2
+  "git.openRepositoryInParentFolders": "never"
 }

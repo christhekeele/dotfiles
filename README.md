@@ -1,61 +1,8 @@
-dotfiles
-========
+# dotfiles
 
-> **christhekeele's personal dotfiles for \*nixes**
+> _**My personal dotfiles for \*nixes**_
 
-Installation
-------------
-
-ex:
-    install chrome
-        sync
-            except bookmarks, history, theme
-    system prefs
-        default browser
-        unbind spotlight
-        touchpad change scroll direction
-        touchpad increase sensitivity
-        keyboard lights
-        touchbar -> function keys
-        replace siri in touchbar with screenshot key
-        set computername/hostname
-    install alfred
-        license
-        shortcut
-        extra files
-    install daisydisk
-        license
-    install menumeters, icleanmemory, divvy
-    install iterm, vscode
-    xcode-select --install
-    install brew
-    brew install git rcm
-    ssh keys
-    git clone dotfilessrc
-    ln -s dofilessrc ~/.dotfiles
-    rcup -v -d ~/.dotfiles
-    brew install fish
-    sudo cat $(which fish) >> /etc/shells
-    chsh -s $(which fish)
-    git clone asdf ~/.config/asdf
-    brew install gcc xz
-    for plugin in R awscli cmake elasticsearch elixir elm erlang github-cli golang haxe imagemagick jq julia lua mongodb mysql nodejs postgres python rabbitmq redis ruby rust sqlite terraform; asdf plugin add $plugin; end
-    brew install curl ffmpeg pandoc sloc zlib
-    brew tap homebrew/cask-fonts
-    brew install --cask font-fira-code
-    point iterm to config file
-    restart iterm
-    install docker
-    brew install gnupg
-    asdf install nodejs 15.14.0
-    asdf global nodejs 15.14.0
-    brew tap hashicorp/tap
-    brew install vagrant
-    brew tap virtualbox
-    brew install virtualbox
-    brew install ack
-    install slack, teams, spotify, zoom, tableplus
-
+## Installation
 
 Requirements: `git`, `rcm`, `sudo` access
 
@@ -70,13 +17,11 @@ git submodule update --recursive
 
 They're made to work with the excellent dotfile manager [rcm](https://github.com/thoughtbot/rcm). After installing `rcm`, you can run `rcup` to link them into your home folder, or `rcup -t mac` to include OSX-specific goodies.
 
-Post-Installation
------------------
+## Post-Installation
 
 Running `rcup` for the first time will accidentally place this project's README and LICENSE in your home folder. (Later runs won't once the `.rcrc` is in place.) After your initial installation, prune them with `rm -f ~/.LICENSE.md ~/.README.md`.
 
-Contents
---------
+## Contents
 
 ### Universal
 
