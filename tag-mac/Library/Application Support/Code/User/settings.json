@@ -1,110 +1,135 @@
 {
-  "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  "explorer.confirmDragAndDrop": false,
+  "editor.fontSize": 14,
+  "editor.fontFamily": "FiraCode-Retina",
+  "editor.fontLigatures": true,
+  "search.useGlobalIgnoreFiles": true,
+  "workbench.preferredDarkColorTheme": "Predawn Twilight",
+  "workbench.colorCustomizations": {
+    "[Community Material Theme Darker High Contrast]": {}
   },
+  "workbench.editor.enablePreview": false,
+  "markdown-preview-enhanced.codeBlockTheme": "twilight.css",
+  "markdown-preview-enhanced.revealjsTheme": "night.css",
+  "typescript.updateImportsOnFileMove.enabled": "always",
   "[json]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "[jsonc]": {
+  "cSpell.userWords": [
+    "agnostically",
+    "backpressure",
+    "behaviour",
+    "behaviours",
+    "debugpy",
+    "interactable",
+    "moreso",
+    "overrwrite",
+    "rabbitmq",
+    "runtimes",
+    "structlog",
+    "unintuitive",
+    "Upsert",
+    "whiteboarding"
+  ],
+  "markdown-preview-enhanced.enableTypographer": true,
+  "markdown-preview-enhanced.frontMatterRenderingOption": "code block",
+  "markdown-preview-enhanced.previewTheme": "github-dark.css",
+  "markdown-preview-enhanced.usePandocParser": true,
+  "[elixir]": {
+    "editor.defaultFormatter": "JakeBecker.elixir-ls"
+  },
+  "search.exclude": {
+    "**/deps": true,
+    "**/node_modules": false,
+    "node_modules": true
+  },
+  "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "[sql]": {
-    "editor.defaultFormatter": "adpyke.vscode-sql-formatter"
+  "editor.fontWeight": "600",
+  "files.associations": {
+    "*.exs": "elixir",
+    "*.config": "text",
+    "*.livemd": "markdown",
+    "*.heex": "phoenix-heex",
+    "\\.?env(\\..*?)?$": "shell"
   },
+  "python.showStartPage": false,
+  "[jsonc]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "material-icon-theme.showWelcomeMessage": false,
+  "gitlens.codeLens.recentChange.enabled": false,
+  "gitlens.currentLine.pullRequests.enabled": false,
+  "gitlens.statusBar.pullRequests.enabled": false,
+  "gitlens.codeLens.authors.enabled": false,
+  "files.exclude": {
+    "**/.elixir_ls": true,
+    "**/node_modules": true
+  },
+  "workbench.editorAssociations": {
+    "*.ipynb": "jupyter.notebook.ipynb"
+  },
+  "cSpell.enableFiletypes": [
+    "!python",
+    "!elixir",
+    "!ruby"
+  ],
+  "python.languageServer": "Pylance",
+  "editor.renderWhitespace": "none",
+  "cSpell.enabledLanguageIds": [
+    "asciidoc",
+    "c",
+    "css",
+    "git-commit",
+    "graphql",
+    "handlebars",
+    "html",
+    "jade",
+    "json",
+    "jsonc",
+    "latex",
+    "less",
+    "markdown",
+    "plaintext",
+    "pug",
+    "restructuredtext",
+    "scss",
+    "text",
+    "yaml",
+    "yml"
+  ],
+  "workbench.editor.untitled.hint": "hidden",
+  "workbench.colorTheme": "Predawn Twilight",
+  "material-icon-theme.hidesExplorerArrows": false,
+  "workbench.iconTheme": "vs-minimal",
+  "editor.tabSize": 2,
+  "vsicons.dontShowNewVersionMessage": true,
+  "security.workspace.trust.enabled": false,
   "[typescript]": {
     "editor.defaultFormatter": "vscode.typescript-language-features"
   },
   "[yaml]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "[elixir]": {
-    "editor.formatOnSave": true,
-    "editor.defaultFormatter": "JakeBecker.elixir-ls"
-  },
-  "[phoenix-heex]": {
-    "editor.formatOnSave": true,
-    "editor.defaultFormatter": "JakeBecker.elixir-ls"
-  },
-  "tailwindCSS.includeLanguages": {
-    "phoenix-heex": "html",
-    "elixir": "html"
-  },
-  "editor.acceptSuggestionOnEnter": "off",
-  "editor.fontFamily": "FiraCode-Retina",
-  "editor.fontLigatures": true,
-  "editor.fontSize": 14,
-  "editor.fontWeight": "600",
-  "editor.guides.bracketPairs": "active",
-  "editor.hover.above": false,
-  "editor.largeFileOptimizations": false,
-  "editor.renderWhitespace": "none",
   "editor.suggestSelection": "first",
-  "editor.tabSize": 2,
-  // "editor.wordBasedSuggestions": false,
-  "explorer.confirmDelete": false,
-  "explorer.confirmDragAndDrop": false,
-  "files.associations": {
-    "*.config": "text",
-    "*.exs": "elixir",
-    "*.livemd": "markdown",
-    "*.cheatmd": "markdown",
-    "\\.?env(\\..*?)?$": "shell",
-    "*.heex": "phoenix-heex"
-  },
-  "files.exclude": {
-    "**/.elixir_ls": true,
-    "**/node_modules": true,
-    ".DS_Store": true
-  },
-  "gitlens.codeLens.authors.enabled": false,
-  "gitlens.codeLens.recentChange.enabled": false,
-  "gitlens.currentLine.pullRequests.enabled": false,
-  "gitlens.statusBar.pullRequests.enabled": false,
-  "javascript.updateImportsOnFileMove.enabled": "always",
-  "markdown-preview-enhanced.codeBlockTheme": "twilight.css",
-  "markdown-preview-enhanced.enableTypographer": true,
-  "markdown-preview-enhanced.frontMatterRenderingOption": "code block",
-  "markdown-preview-enhanced.previewTheme": "github-dark.css",
-  "markdown-preview-enhanced.revealjsTheme": "night.css",
-  "markdown-preview-enhanced.usePandocParser": true,
-  "python.formatting.provider": "black",
-  "python.languageServer": "Pylance",
-  "redhat.telemetry.enabled": false,
-  "search.exclude": {
-    "**/_build": true,
-    "**/deps": true,
-    "**/node_modules": false,
-    "node_modules": true
-  },
-  "search.useGlobalIgnoreFiles": true,
-  "security.workspace.trust.enabled": false,
-  "svg.preview.mode": "svg",
-  "typescript.disableAutomaticTypeAcquisition": true,
-  "typescript.implementationsCodeLens.enabled": true,
-  "typescript.inlayHints.functionLikeReturnTypes.enabled": true,
-  "typescript.updateImportsOnFileMove.enabled": "always",
   "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
-  // "workbench.activityBar.visible": false,
-  "workbench.colorCustomizations": {
-    "editorBracketHighlight.foreground1": "#F8F8F8",
-    "editorBracketHighlight.foreground2": "#F8F8F8",
-    "editorBracketHighlight.foreground3": "#F8F8F8",
-    "editorBracketHighlight.foreground4": "#F8F8F8",
-    "editorBracketHighlight.foreground5": "#F8F8F8",
-    "editorBracketHighlight.foreground6": "#F8F8F8",
-    "editorBracketHighlight.unexpectedBracket.foreground": "#F18260",
-    "[Community Material Theme Darker High Contrast]": {}
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "python.formatting.provider": "black",
+  "redhat.telemetry.enabled": false,
+  "svg.preview.mode": "svg",
+  "editor.largeFileOptimizations": false,
+  "editor.wordBasedSuggestions": false,
+  "editor.acceptSuggestionOnEnter": "off",
+  "workbench.startupEditor": "none",
+  "workbench.editor.closeOnFileDelete": true,
+  "explorer.confirmDelete": false,
+  "terminal.integrated.copyOnSelection": true,
+  "terminal.integrated.cursorBlinking": true,
+  "[python]": {
+    "editor.formatOnType": true
   },
-  "workbench.colorTheme": "Predawn Twilight",
-  "workbench.editor.enablePreview": false,
-  "workbench.editor.untitled.hint": "hidden",
-  "workbench.editorAssociations": {
-    "*.ipynb": "jupyter-notebook"
-  },
-  "workbench.iconTheme": "vs-minimal",
-  "workbench.preferredDarkColorTheme": "Predawn Twilight",
-  "editor.bracketPairColorization.independentColorPoolPerBracketType": true,
-  "[html]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  }
+  "triggerTaskOnSave.on": false,
+  "git.openRepositoryInParentFolders": "never",
+  "window.zoomLevel": 2
 }

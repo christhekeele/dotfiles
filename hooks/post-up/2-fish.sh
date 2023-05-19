@@ -10,4 +10,4 @@ echo "Setting fish as our shell..."
 if ! grep -q fish "/etc/shells"; then
   which fish | sudo tee -a /etc/shells > /dev/null 2>&1
 fi
-sudo chsh $USER -s $(which fish) > /dev/null 2>&1
+sudo chsh -s $(which fish) $USER > /dev/null 2>&1

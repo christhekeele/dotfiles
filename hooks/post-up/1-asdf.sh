@@ -12,33 +12,32 @@ if [[ ! -d $CONFIG_DIR/asdf ]]; then
 fi
 
 echo "Installing asdf plugins..."
-set +x
 
-asdf plugin add awscli > /dev/null 2>&1
-asdf plugin add imagemagick > /dev/null 2>&1
-asdf plugin add jq > /dev/null 2>&1
-asdf plugin add shellcheck > /dev/null 2>&1
-asdf plugin add shfmt > /dev/null 2>&1
-asdf plugin add terraform > /dev/null 2>&1
+$CONFIG_DIR/asdf/bin/asdf plugin add awscli
+$CONFIG_DIR/asdf/bin/asdf plugin add imagemagick
+$CONFIG_DIR/asdf/bin/asdf plugin add jq
+$CONFIG_DIR/asdf/bin/asdf plugin add shellcheck
+$CONFIG_DIR/asdf/bin/asdf plugin add shfmt
+$CONFIG_DIR/asdf/bin/asdf plugin add terraform
 
-asdf plugin add elixir > /dev/null 2>&1
-asdf plugin add erlang > /dev/null 2>&1
-asdf plugin add golang > /dev/null 2>&1
-asdf plugin add java > /dev/null 2>&1
-asdf plugin add lua > /dev/null 2>&1
-asdf plugin add nodejs > /dev/null 2>&1
-asdf plugin add python > /dev/null 2>&1
-asdf plugin add ruby > /dev/null 2>&1
-asdf plugin add rust > /dev/null 2>&1
+$CONFIG_DIR/asdf/bin/asdf plugin add elixir
+$CONFIG_DIR/asdf/bin/asdf plugin add erlang
+$CONFIG_DIR/asdf/bin/asdf plugin add golang
+$CONFIG_DIR/asdf/bin/asdf plugin add java
+$CONFIG_DIR/asdf/bin/asdf plugin add lua
+$CONFIG_DIR/asdf/bin/asdf plugin add nodejs
+$CONFIG_DIR/asdf/bin/asdf plugin add python
+$CONFIG_DIR/asdf/bin/asdf plugin add ruby
+$CONFIG_DIR/asdf/bin/asdf plugin add rust
 
-asdf plugin add mongodb > /dev/null 2>&1
-asdf plugin add mysql > /dev/null 2>&1
-asdf plugin add postgres > /dev/null 2>&1
-asdf plugin add rabbitmq > /dev/null 2>&1
-asdf plugin add redis > /dev/null 2>&1
-asdf plugin add sqlite > /dev/null 2>&1
+$CONFIG_DIR/asdf/bin/asdf plugin add mongodb
+$CONFIG_DIR/asdf/bin/asdf plugin add mysql
+$CONFIG_DIR/asdf/bin/asdf plugin add postgres
+$CONFIG_DIR/asdf/bin/asdf plugin add rabbitmq
+$CONFIG_DIR/asdf/bin/asdf plugin add redis
+$CONFIG_DIR/asdf/bin/asdf plugin add sqlite
 
 
 echo "Installing asdf packages..."
-set -x
-asdf install > /dev/null 2>&1
+$CONFIG_DIR/asdf/bin/asdf install java adoptopenjdk-jre-19.0.2+7
+$CONFIG_DIR/asdf/bin/asdf install

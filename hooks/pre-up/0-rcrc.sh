@@ -6,4 +6,6 @@ export XDG_CONFIG_HOME=${XDG_CONFIG_HOME-$HOME/.config}
 export CONFIG_DIR=$XDG_CONFIG_HOME
 mkdir -p $HOME/.config
 
-cp -f $PWD/../../rcrc $HOME/.rcrc
+if [[ ! -f $HOME/.rcrc ]]; then
+  cp -f $PWD/../../rcrc $HOME/.rcrc
+fi

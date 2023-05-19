@@ -24,6 +24,7 @@ set -gx VAGRANT_HOME $CONFIG_ROOT/vagrant
 
 # HOMEBREW
 set -gx HOMEBREW_NO_AUTO_UPDATE 1
+eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # ASDF
 set -gx ASDF_ROOT $CONFIG_ROOT/asdf

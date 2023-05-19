@@ -1,24 +1,35 @@
-ack
-bash
-brotli
-cloc
-coreutils
-curl
-ffmpeg
-fish
-gcc
-gettext
-git
-graphviz
-libsodium
-ncurses
-openblas
-openssl@1.1
-pandoc
-rcm
-readline
-sloc
-tree
-watch
-wxwidgets
-zlib
+# Dependencies
+brew "coreutils"
+brew "gcc"
+brew "gettext"
+brew "libsodium"
+brew "ncurses"
+brew "openblas"
+brew "openssl@1.1"
+brew "readline"
+brew "wxwidgets"
+brew "xz" # for burrito
+brew "zlib"
+brew "zstd" # for bakeware
+# Scenic
+brew "glfw"
+brew "glew"
+brew "pkg-config"
+# CLI tools
+brew "ack"
+brew "bash"
+brew "brotli"
+brew "cloc"
+brew "curl"
+brew "ffmpeg"
+brew "fish"
+brew "git"
+brew "graphviz"
+brew "pandoc"
+brew "rcm"
+brew "sloc"
+brew "tree"
+brew "watch"
+# Apps
+brew "tableplus"
+

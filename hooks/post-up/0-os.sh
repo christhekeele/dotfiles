@@ -17,7 +17,7 @@ case "$(uname -sr)" in
     set -e
 
     echo "Installing Hombrew packages..."
-    brew bundle $HOME/.Brewfile --no-lock > /dev/null 2>&1
+    brew bundle install --file $HOME/.Brewfile --no-lock > /dev/null 2>&1
   ;;
 
   Linux*Microsoft*)
