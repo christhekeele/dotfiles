@@ -12,9 +12,11 @@ case "$(uname -sr)" in
     echo "Running post-setup steps for OSX..."
 
     echo "Installing Homebrew system package manager..."
-    set +e
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" > /dev/null 2>&1
-    set -e
+    if [[ ! $(which brew) ]]; then
+      set +x
+      /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" > /dev/null 2>&1
+      set -x
+    fi
 
     echo "Installing Hombrew packages..."
     brew bundle install --file $HOME/.Brewfile --no-lock > /dev/null 2>&1

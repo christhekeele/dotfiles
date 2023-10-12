@@ -13,6 +13,7 @@ fi
 
 echo "Installing asdf plugins..."
 
+set +e
 $CONFIG_DIR/asdf/bin/asdf plugin add awscli
 $CONFIG_DIR/asdf/bin/asdf plugin add imagemagick
 $CONFIG_DIR/asdf/bin/asdf plugin add jq
@@ -29,6 +30,7 @@ $CONFIG_DIR/asdf/bin/asdf plugin add nodejs
 $CONFIG_DIR/asdf/bin/asdf plugin add python
 $CONFIG_DIR/asdf/bin/asdf plugin add ruby
 $CONFIG_DIR/asdf/bin/asdf plugin add rust
+$CONFIG_DIR/asdf/bin/asdf plugin add zig
 
 $CONFIG_DIR/asdf/bin/asdf plugin add mongodb
 $CONFIG_DIR/asdf/bin/asdf plugin add mysql
@@ -37,7 +39,7 @@ $CONFIG_DIR/asdf/bin/asdf plugin add rabbitmq
 $CONFIG_DIR/asdf/bin/asdf plugin add redis
 $CONFIG_DIR/asdf/bin/asdf plugin add sqlite
 
-
+set -e
 echo "Installing asdf packages..."
 $CONFIG_DIR/asdf/bin/asdf install java adoptopenjdk-jre-19.0.2+7
 $CONFIG_DIR/asdf/bin/asdf install

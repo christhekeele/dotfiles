@@ -1,7 +1,7 @@
 {
   "explorer.confirmDragAndDrop": false,
-  "editor.fontSize": 14,
-  "editor.fontFamily": "FiraCode-Retina",
+  "editor.fontSize": 16,
+  "editor.fontFamily": "Fira Code",
   "editor.fontLigatures": true,
   "search.useGlobalIgnoreFiles": true,
   "workbench.preferredDarkColorTheme": "Predawn Twilight",
@@ -130,5 +130,22 @@
     "editor.formatOnType": true
   },
   "triggerTaskOnSave.on": false,
-  "git.openRepositoryInParentFolders": "never"
+  "git.openRepositoryInParentFolders": "never",
+  "editor.bracketPairColorization.enabled": true,
+  "workbench.colorCustomizations": {
+    "editorBracketHighlight.foreground1": "#CDA869",
+    "editorBracketHighlight.foreground2": "#CDA869",
+    "editorBracketHighlight.foreground3": "#CDA869",
+    "editorBracketHighlight.foreground4": "#CDA869",
+    "editorBracketHighlight.foreground5": "#CDA869",
+    "editorBracketHighlight.foreground6": "#CDA869",
+    "editorBracketHighlight.unexpectedBracket.foreground": "#db6165"
+  },
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "gitlens.blame.ignoreWhitespace": true,
 }

@@ -38,3 +38,5 @@ vendor/bundle
 # Ensure we don't accidentially check in certain history files,
 # if they happen to get linked into the dotfiles source repo location
 config/psql/history-*
+
+erl_crash.dump
