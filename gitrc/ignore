@@ -2,3 +2,5 @@
 .DS_Store
 *.ignore
 .ignore/
+.elixir-tools
+

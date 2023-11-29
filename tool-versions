@@ -2,7 +2,9 @@ elixir 1.15.6-otp-26
 erlang 26.1
 flyctl 0.1.104
 java adoptopenjdk-jre-19.0.2+7
-nodejs 15.14.0
+nodejs 16.19.1
 python 3.7.10
 shellcheck 0.7.2
 zig 0.10.0
+dotnet 7.0.403
+postgres 14.1

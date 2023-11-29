@@ -1,5 +1,8 @@
-# Dependencies
+####
+# Build Dependencies
+##
 brew "coreutils"
+brew "cmake"
 brew "gcc"
 brew "gettext"
 brew "libsodium"
@@ -15,7 +18,10 @@ brew "zstd" # for bakeware
 brew "glfw"
 brew "glew"
 brew "pkg-config"
+
+####
 # CLI tools
+##
 brew "ack"
 brew "bash"
 brew "bat"
@@ -34,3 +40,14 @@ brew "sloc"
 brew "tree"
 brew "watch"
 
+####
+# Apps
+##
+brew "discord"
+
+####
+# Fonts
+##
+tap "homebrew/cask-fonts"
+brew "font-fira-code"
+brew "font-monaspace"
