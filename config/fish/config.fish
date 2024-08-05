@@ -37,6 +37,11 @@ set -gx ASDF_DOWNLOAD_PATH $ASDF_ROOT/downloads
 set -gx MIX_HOME $HOME/.mix
 set -gx ERL_AFLAGS "-kernel shell_history enabled"
 
+# ERLANG
+set -gx ERL_FLAGS "+B"
+set -gx KERL_BUILD_DOCS "yes"
+set -gx KERL_CONFIGURE_OPTIONS "--without-javac --without-odbc --with-ssl=$(brew --prefix openssl@1.1)"
+
 # FLY.IO
 
 set -gx FLY_HOME $HOME/.fly

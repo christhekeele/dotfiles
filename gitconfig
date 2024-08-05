@@ -128,4 +128,4 @@
   # help = normal
   # error = normal
 [init]
-	defaultBranch = main
+	defaultBranch = latest

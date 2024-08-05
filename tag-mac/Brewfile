@@ -1,6 +1,7 @@
 ####
 # Build Dependencies
 ##
+brew install fwup squashfs coreutils xz pkg-config
 brew "coreutils"
 brew "cmake"
 brew "gcc"
@@ -11,12 +12,15 @@ brew "openblas"
 brew "openssl@1.1"
 brew "readline"
 brew "wxwidgets"
-brew "xz" # for burrito
+brew "xz" # for burrito, nerves
 brew "zlib"
 brew "zstd" # for bakeware
 # Scenic
 brew "glfw"
 brew "glew"
+# Nerves
+brew "fwup"
+brew "squashfs"
 brew "pkg-config"
 
 ####

@@ -1,6 +1,6 @@
-.vscode
 .DS_Store
 *.ignore
+*.ignore.*
 .ignore/
 .elixir-tools
 
