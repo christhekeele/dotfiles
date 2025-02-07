@@ -52,7 +52,7 @@
   # Reverts unstaged changes to provided files
 	discard = checkout --force --
   # Removes staged changes from working index to provided files
-  unstage = reset HEAD
+  unstage = restore --staged
 
   # Shows SHA of common commit between two branches
   ancestor = merge-base --octopus

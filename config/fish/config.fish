@@ -62,7 +62,6 @@ set paths "/usr/local/sbin" $paths
 
 # ASDF
 
-set paths $ASDF_ROOT/bin $paths
 set paths $ASDF_DATA_DIR/shims $paths
 
 # FLY.IO
@@ -77,8 +76,8 @@ set paths $MIX_HOME/escripts $paths
 # make-like build tool for ML deps
 set paths $HOME/.bazel/bin $paths
 
-# SnowSQL
-set paths '/Applications/SnowSQL.app/Contents/MacOS' $paths
+# RUST
+set paths ($ASDF_DIR/bin/asdf where rust)/bin $paths
 
 for path in $paths
   if test -e $path
@@ -172,4 +171,6 @@ set -g fish_key_bindings fish_hybrid_key_bindings
 # SOURCE THINGS
 ##
 
-source $ASDF_SOURCE
+source /opt/homebrew/opt/asdf/libexec/asdf.fish
+source $HOME/VulkanSDK/1.3.296.0/setup-env.fish
+

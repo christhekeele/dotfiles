@@ -46,9 +46,11 @@
 
 
 -- Normal prompt
-\set PROMPT1 '%n@%M %/%x ❯❯❯ '
+-- \set PROMPT1 '%n@%m %/%x %l ❯❯❯ '
+\set PROMPT1 '%n@%m %/%x ❯❯❯ '
 -- Input cont prompt
-\set PROMPT2 '%n@%M %/%x ... '
+-- \set PROMPT2 '%n@%m %/%x %l ... '
+\set PROMPT2 '%w'
 
 
 -- Re-enable REPL command output
