@@ -119,7 +119,7 @@
   "redhat.telemetry.enabled": false,
   "svg.preview.mode": "svg",
   "editor.largeFileOptimizations": false,
-  "editor.wordBasedSuggestions": false,
+  "editor.wordBasedSuggestions": "off",
   "editor.acceptSuggestionOnEnter": "off",
   "workbench.startupEditor": "none",
   "workbench.editor.closeOnFileDelete": true,
@@ -131,5 +131,6 @@
   },
   "triggerTaskOnSave.on": false,
   "git.openRepositoryInParentFolders": "never",
-  "window.zoomLevel": 2
+  "window.zoomLevel": 2,
+  "workbench.editor.empty.hint": "hidden"
 }

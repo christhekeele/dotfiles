@@ -23,6 +23,7 @@
 	tool = diffmerge
 [branch]
   autosetuprebase = always
+	autoSetupMerge = always
 [pull]
   rebase = merges
 [fetch]
