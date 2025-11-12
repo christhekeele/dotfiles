@@ -59,6 +59,7 @@ set -l paths
 
 set paths "/usr/local/bin" $paths
 set paths "/usr/local/sbin" $paths
+set paths $HOME/.local/bin $paths
 
 # ASDF
 
@@ -171,6 +172,9 @@ set -g fish_key_bindings fish_hybrid_key_bindings
 # SOURCE THINGS
 ##
 
-source /opt/homebrew/opt/asdf/libexec/asdf.fish
+# source /opt/homebrew/opt/asdf/libexec/asdf.fish
 source $HOME/VulkanSDK/1.3.296.0/setup-env.fish
 
+
+# Created by `pipx` on 2025-10-23 20:47:54
+set PATH $PATH /Users/keele/.local/bin

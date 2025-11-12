@@ -1,0 +1,5 @@
+**/.DS_Store
+**/*.ignore
+__pycache__/
+**/*.py[cod]
+**/erl_crash.dump

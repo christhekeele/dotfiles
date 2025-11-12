@@ -12,23 +12,33 @@
 
 [push]
 	default = simple
+	autoSetupRemote = true
+	followTags = true
 [rerere]
 	enabled = true
+	autoupdate = true
 [merge]
 	conflictstyle = diff3
   ff = false
 	tool = diffmerge
 [diff]
-  mnemonicprefix = true
+	mnemonicPrefix = true
 	tool = diffmerge
+	algorithm = histogram
+	colorMoved = plain
+	renames = true
 [branch]
   autosetuprebase = always
+	sort = -committerdate
 [pull]
   rebase = merges
 [fetch]
-  prune = true
+	prune = true
+	pruneTags = true
+	all = true
 [commit]
 	cleanup = scissors
+	verbose = true
 
 [alias]
   # Check for whitespace errors:
@@ -129,3 +139,12 @@
   # error = normal
 [init]
 	defaultBranch = latest
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[column]
+	ui = auto
+[tag]
+	sort = version:refname
