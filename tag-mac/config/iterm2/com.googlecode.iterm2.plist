@@ -3,15 +3,15 @@
 <plist version="1.0">
 <dict>
 	<key>AIFeatureFunctionCalling</key>
-	<false/>
+	<true/>
 	<key>AIFeatureHostedCodeInterpeter</key>
-	<false/>
+	<true/>
 	<key>AIFeatureHostedFileSearch</key>
-	<false/>
+	<true/>
 	<key>AIFeatureHostedWebSearch</key>
-	<false/>
+	<true/>
 	<key>AIFeatureStreamingResponses</key>
-	<false/>
+	<true/>
 	<key>AITermAPI</key>
 	<integer>2</integer>
 	<key>AIVectorStore</key>

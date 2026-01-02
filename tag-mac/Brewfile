@@ -1,16 +1,19 @@
 ####
 # Build Dependencies
 ##
-brew install fwup squashfs coreutils xz pkg-config
 brew "coreutils"
 brew "cmake"
 brew "gcc"
 brew "gettext"
+brew "icu4c" # for postgres
 brew "libsodium"
+brew "ossp-uuid" # for postgres
 brew "ncurses"
 brew "openblas"
 brew "openssl@1.1"
+brew "pkgconf" # for nerves, postgres
 brew "readline"
+brew "uconv" # for postgres
 brew "wxwidgets"
 brew "xz" # for burrito, nerves
 brew "zlib"
@@ -21,7 +24,6 @@ brew "glew"
 # Nerves
 brew "fwup"
 brew "squashfs"
-brew "pkg-config"
 
 ####
 # CLI tools
@@ -38,6 +40,7 @@ brew "fish"
 brew "git"
 brew "graphviz"
 brew "htop"
+brew "mise"
 brew "pandoc"
 brew "rcm"
 brew "sloc"
@@ -47,11 +50,10 @@ brew "watch"
 ####
 # Apps
 ##
-brew "discord"
+# brew "discord"
 
 ####
 # Fonts
 ##
-tap "homebrew/cask-fonts"
 brew "font-fira-code"
 brew "font-monaspace"

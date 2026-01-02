@@ -1,6 +1,6 @@
-#
-# Session detection
-#
+####
+# INTERACTIVE SESSION DETECTION
+##
 
 if begin set -q SSH_CLIENT; or set -q SSH_TTY; or ps -p %self | grep ssh; end
   set -gx SESSION_TYPE remote/ssh
@@ -19,19 +19,9 @@ if not set -q XDG_CONFIG_HOME;
 end
 set -gx CONFIG_ROOT $XDG_CONFIG_HOME
 
-# VAGRANT
-set -gx VAGRANT_HOME $CONFIG_ROOT/vagrant
-
 # HOMEBREW
 set -gx HOMEBREW_NO_AUTO_UPDATE 1
 eval "$(/opt/homebrew/bin/brew shellenv)"
-
-# ASDF
-set -gx ASDF_ROOT $CONFIG_ROOT/asdf
-set -gx ASDF_SOURCE $ASDF_ROOT/asdf.fish
-set -gx ASDF_CONFIG_FILE $ASDF_ROOT/config.rc
-set -gx ASDF_DATA_DIR $ASDF_ROOT/data
-set -gx ASDF_DOWNLOAD_PATH $ASDF_ROOT/downloads
 
 # ELIXIR
 set -gx MIX_HOME $HOME/.mix
@@ -52,18 +42,19 @@ set -gx PGUSER postgres
 set -gx PSQL_ROOT $CONFIG_ROOT/psql
 set -gx PSQLRC $PSQL_ROOT/psqlrc
 
+
 ####
-# PATH
+# PATHS
 ##
+
 set -l paths
 
 set paths "/usr/local/bin" $paths
 set paths "/usr/local/sbin" $paths
 set paths $HOME/.local/bin $paths
 
-# ASDF
-
-set paths $ASDF_DATA_DIR/shims $paths
+# brew uconv
+set paths "$(brew --prefix icu4c)/bin" $paths
 
 # FLY.IO
 
@@ -77,8 +68,7 @@ set paths $MIX_HOME/escripts $paths
 # make-like build tool for ML deps
 set paths $HOME/.bazel/bin $paths
 
-# RUST
-set paths ($ASDF_DIR/bin/asdf where rust)/bin $paths
+# PATH
 
 for path in $paths
   if test -e $path
@@ -97,11 +87,22 @@ set -g fish_user_paths './bin' $fish_user_paths
 ####
 # COMPILERS
 ##
-set -gx LDFLAGS "-L/usr/local/opt/openssl@1.1/lib"
-set -gx CPPFLAGS "-I/usr/local/opt/openssl@1.1/include"
+
+set -gx LDFLAGS ""
+set -gx LDFLAGS "$LDFLAGS -L$(brew --prefix openssl)/lib"
+set -gx LDFLAGS "$LDFLAGS -L$(brew --prefix icu4c)/lib"
+
+set -gx CPPFLAGS ""
+set -gx CPPFLAGS "$CPPFLAGS -I$(brew --prefix openssl)/include"
+set -gx CPPFLAGS "$CPPFLAGS -I$(brew --prefix icu4c)/include"
+
+set -gx PKG_CONFIG_PATH "$(brew --prefix pkgconfig)"
+set -gx PKG_CONFIG_PATH "$PKG_CONFIG_PATH:$(brew --prefix icu4c)/lib/pkgconfig"
+set -gx PKG_CONFIG_PATH "$PKG_CONFIG_PATH:$(brew --prefix curl)/lib/pkgconfig"
+set -gx PKG_CONFIG_PATH "$PKG_CONFIG_PATH:$(brew --prefix zlib)/lib/pkgconfig"
 
 ####
-# FISH SETUP
+# FISH
 ##
 
 # VI mode
@@ -167,17 +168,3 @@ set -g fish_key_bindings fish_hybrid_key_bindings
 # unset normally
   set -gx fish_pager_color_completion    brwhite --bold
 # set -gx fish_pager_color_secondary     brblack
-
-####
-# SOURCE THINGS
-##
-
-# source /opt/homebrew/opt/asdf/libexec/asdf.fish
-source $HOME/VulkanSDK/1.3.296.0/setup-env.fish
-
-
-# Created by `pipx` on 2025-10-23 20:47:54
-set PATH $PATH /Users/keele/.local/bin
-
-# Added by Antigravity
-fish_add_path /Users/keele/.antigravity/antigravity/bin
