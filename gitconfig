@@ -18,7 +18,7 @@
 	enabled = true
 	autoupdate = true
 [merge]
-	conflictstyle = diff3
+	conflictstyle = zdiff3
   ff = false
 	tool = diffmerge
 [diff]
@@ -55,6 +55,9 @@
 
   # Shows sha of branch
   # sha = rev-parse
+
+  # Shows changed filenames matching pattern
+  # changed = "!changed(){ git status --porcelain '$1' | grep -E '(\?\?|A |M )' | cut -c 4-; }; changed"
 
   last   = log -n1 --pretty='format:Commit: %C(yellow)%H%nAuthored by: %C(magenta)%aN %Creset%ar%nCommited by: %Cblue%cN %Creset%cr%n%n%B'
   latest = log -n5 --pretty='format:%Cgreen---------------------- >8 ----------------------%nCommit: %C(yellow)%H%nAuthored by: %C(magenta)%aN %Creset%ar%nCommited by: %Cblue%cN %Creset%cr%n%n%s%n'
@@ -144,7 +147,9 @@
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
-[column]
-	ui = auto
 [tag]
 	sort = version:refname
+[rebase]
+	autoSquash = true
+	autoStash = true
+	updateRefs = true

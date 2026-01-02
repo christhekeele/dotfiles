@@ -1,4 +1,4 @@
-elixir 1.19.1-otp-28
+elixir 1.19.2-otp-28
 erlang 28.1.1
 flyctl 0.2.46
 java adoptopenjdk-17.0.10+7

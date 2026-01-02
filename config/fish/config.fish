@@ -178,3 +178,6 @@ source $HOME/VulkanSDK/1.3.296.0/setup-env.fish
 
 # Created by `pipx` on 2025-10-23 20:47:54
 set PATH $PATH /Users/keele/.local/bin
+
+# Added by Antigravity
+fish_add_path /Users/keele/.antigravity/antigravity/bin
