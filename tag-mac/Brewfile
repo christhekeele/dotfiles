@@ -1,29 +1,26 @@
 ####
 # Build Dependencies
 ##
-brew "coreutils"
 brew "cmake"
+brew "coreutils"
+brew "fwup" # for nerves
 brew "gcc"
 brew "gettext"
+brew "glew" # for scenic
+brew "glfw" # for scenic
 brew "icu4c" # for postgres
 brew "libsodium"
-brew "ossp-uuid" # for postgres
 brew "ncurses"
 brew "openblas"
 brew "openssl@1.1"
+brew "ossp-uuid" # for postgres
 brew "pkgconf" # for nerves, postgres
 brew "readline"
-brew "uconv" # for postgres
+brew "squashfs" # for nerves
 brew "wxwidgets"
 brew "xz" # for burrito, nerves
 brew "zlib"
 brew "zstd" # for bakeware
-# Scenic
-brew "glfw"
-brew "glew"
-# Nerves
-brew "fwup"
-brew "squashfs"
 
 ####
 # CLI tools
@@ -37,6 +34,7 @@ brew "curl"
 brew "entr"
 brew "ffmpeg"
 brew "fish"
+brew "gh"
 brew "git"
 brew "graphviz"
 brew "htop"
@@ -50,7 +48,12 @@ brew "watch"
 ####
 # Apps
 ##
-# brew "discord"
+brew "alfred"
+brew "google-chrome"
+brew "istat-menus"
+brew "iterm2"
+brew "tableplus"
+brew "visual-studio-code"
 
 ####
 # Fonts
