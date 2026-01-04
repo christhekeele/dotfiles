@@ -2,12 +2,26 @@
 # INTERACTIVE SESSION DETECTION
 ##
 
-if begin set -q SSH_CLIENT; or set -q SSH_TTY; or ps -p %self | grep ssh; end
-  set -gx SESSION_TYPE remote/ssh
+set -gx SESSION_TYPE
+
+if begin set -q SSH_CLIENT; or set -q SSH_TTY; or set -q SSH_CONNECTION; or ps -p %self | grep ssh; end
+  echo "Detected remote ssh session..."
+  set -a SESSION_TYPE remote
 else
-  set -gx SESSION_TYPE local
+  set -a SESSION_TYPE local
 end
 
+if status is-login
+  echo "Detected login shell session..."
+  set -a SESSION_TYPE login
+  mise activate fish --shims | source
+end
+
+if status is-interactive
+  echo "Detected interactive shell session..."
+  set -a SESSION_TYPE interactive
+  mise activate fish | source
+end
 
 ####
 # CONFIG
@@ -49,24 +63,24 @@ set -gx PSQLRC $PSQL_ROOT/psqlrc
 
 set -l paths
 
-set paths "/usr/local/bin" $paths
-set paths "/usr/local/sbin" $paths
-set paths $HOME/.local/bin $paths
+set paths -a "/usr/local/bin" $paths
+set paths -a "/usr/local/sbin" $paths
+set paths -a $HOME/.local/bin $paths
 
 # brew uconv
-set paths "$(brew --prefix icu4c)/bin" $paths
+set paths -a "$(brew --prefix icu4c)/bin" $paths
 
 # FLY.IO
 
-set paths $FLY_HOME/bin $paths
+set paths -a $FLY_HOME/bin $paths
 
 # Personal binaries
-set paths $HOME/bin $paths
+set paths -a $HOME/bin $paths
 
 # ELIXIR
-set paths $MIX_HOME/escripts $paths
+set paths -a $MIX_HOME/escripts $paths
 # make-like build tool for ML deps
-set paths $HOME/.bazel/bin $paths
+set paths -a $HOME/.bazel/bin $paths
 
 # PATH
 

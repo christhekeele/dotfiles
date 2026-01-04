@@ -10,6 +10,17 @@ case "$(uname -sr)" in
 
   Darwin*)
     echo "Running post-setup steps for OSX..."
+    
+    echo "Setting up /etc/sudoers..."
+    if sudo cat /etc/sudoers | grep -xqFe 'Defaults	env_keep += "SSH_CLIENT SSH_TTY SSH_CONNECTION SESSION_TYPE"'
+    then
+      echo "Adding session env vars preservation to /etc/sudoers..."
+      echo '' | sudo tee -a /etc/sudoers
+      echo '# Preserve session detection env vars when sudoing' | sudo tee -a /etc/sudoers
+      echo 'Defaults	env_keep += "SSH_CLIENT SSH_TTY SSH_CONNECTION SESSION_TYPE"' | sudo tee -a /etc/sudoers
+    else
+      echo "Session env var preservation already set up in /etc/sudoers."
+    fi
 
     echo "Installing Homebrew system package manager..."
     if [[ ! $(which brew) ]]; then
@@ -18,12 +29,23 @@ case "$(uname -sr)" in
       set -x
     fi
 
-    echo "Installing Hombrew packages..."
-    brew bundle install --file $HOME/.Brewfile --no-lock > /dev/null 2>&1
+    echo "Installing Homebrew packages..."
+    brew bundle install --file $HOME/.Brewfile > /dev/null 2>&1
   ;;
 
   Linux*Microsoft*)
     echo "Running post-setup steps for WSL..."
+    
+    echo "Setting up /etc/sudoers..."
+    if sudo cat /etc/sudoers | grep -xqFe 'Defaults	env_keep += "SSH_CLIENT SSH_TTY SSH_CONNECTION SESSION_TYPE"'
+    then
+      echo "Adding session env vars preservation to /etc/sudoers..."
+      echo '' | sudo tee -a /etc/sudoers
+      echo '# Preserve session detection env vars when sudoing' | sudo tee -a /etc/sudoers
+      echo 'Defaults	env_keep += "SSH_CLIENT SSH_TTY SSH_CONNECTION SESSION_TYPE"' | sudo tee -a /etc/sudoers
+    else
+      echo "Session env var preservation already set up in /etc/sudoers."
+    fi
   ;;
 
   Linux*)
@@ -41,6 +63,17 @@ case "$(uname -sr)" in
     sudo apt-get -y update > /dev/null 2>&1
     sudo apt-get -y install fish > /dev/null 2>&1
     chsh vagrant -s /usr/bin/fish
+    
+    echo "Setting up /etc/sudoers..."
+    if sudo cat /etc/sudoers | grep -xqFe 'Defaults	env_keep += "SSH_CLIENT SSH_TTY SSH_CONNECTION SESSION_TYPE"'
+    then
+      echo "Adding session env vars preservation to /etc/sudoers..."
+      echo '' | sudo tee -a /etc/sudoers
+      echo '# Preserve session detection env vars when sudoing' | sudo tee -a /etc/sudoers
+      echo 'Defaults	env_keep += "SSH_CLIENT SSH_TTY SSH_CONNECTION SESSION_TYPE"' | sudo tee -a /etc/sudoers
+    else
+      echo "Session env var preservation already set up in /etc/sudoers."
+    fi
   ;;
 
   CYGWIN*|MINGW*|MINGW32*|MSYS*)

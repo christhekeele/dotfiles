@@ -1,6 +1,6 @@
-dotenvx 1.51.4
-elixir 1.19.4-otp-28
-erlang 28.3
-nodejs 25.2.1
+dotenvx  1.51.4
+elixir   1.19.4-otp-28
+erlang   28.3
+nodejs   25.2.1
 postgres 18.1
-python 3.14.2
+python   3.14.2

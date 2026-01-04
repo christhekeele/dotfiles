@@ -58,5 +58,5 @@ brew "visual-studio-code"
 ####
 # Fonts
 ##
-brew "font-fira-code"
-brew "font-monaspace"
+cask "font-fira-code"
+cask "font-monaspace"
