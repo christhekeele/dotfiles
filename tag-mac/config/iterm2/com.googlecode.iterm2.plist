@@ -16,6 +16,10 @@
 	<integer>2</integer>
 	<key>AIVectorStore</key>
 	<integer>0</integer>
+	<key>AboutToPasteTabsWithCancel</key>
+	<true/>
+	<key>AboutToPasteTabsWithCancel_selection</key>
+	<integer>0</integer>
 	<key>AiMaxTokens</key>
 	<integer>400000</integer>
 	<key>AiModel</key>

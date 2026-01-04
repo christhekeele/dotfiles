@@ -26,11 +26,17 @@ function fish_prompt --description 'Write out the prompt'
   # Render hostname
 
   set host (prompt_hostname)
+  set host_color
+  if contains remote $SESSION_TYPE
+    set host_color yellow
+  else
+    set host_color magenta
+  end
   switch "$host"
   case vagrant # Blue if VM
     echo -n -s (set_color blue --bold --dim) 'vagrant' (set_color normal)
   case '*' # Normal if not
-    echo -n -s (set_color magenta --bold --dim) $host (set_color normal)
+    echo -n -s (set_color $host_color --bold --dim) $host (set_color normal)
   end
 
   echo -n -s ' '
