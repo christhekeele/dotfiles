@@ -56,8 +56,11 @@
   # Shows sha of branch
   # sha = rev-parse
 
-  # Shows changed filenames matching pattern
-  # changed = "!changed(){ git status --porcelain '$1' | grep -E '(\?\?|A |M )' | cut -c 4-; }; changed"
+  # Lists files with status matching pattern
+  changed = "!changed(){ cd ${GIT_PREFIX:-.} && git status --porcelain $1 | grep -E '(\\?\\? |A  |M  | A | M )' | cut -c 4-; }; changed"
+  untracked = "!untracked(){ cd ${GIT_PREFIX:-.} && git status --porcelain $1 | grep -E '(\\?\\? )' | cut -c 4-; }; untracked"
+  staged = "!staged(){ cd ${GIT_PREFIX:-.} && git status --porcelain $1 | grep -E '(D. |A. |M. )' | cut -c 4-; }; staged"
+  unstaged = "!unstaged(){ cd ${GIT_PREFIX:-.} && git status --porcelain $1 | grep -E '(.D |.A |.M )' | cut -c 4-; }; unstaged"
 
   last   = log -n1 --pretty='format:Commit: %C(yellow)%H%nAuthored by: %C(magenta)%aN %Creset%ar%nCommited by: %Cblue%cN %Creset%cr%n%n%B'
   latest = log -n5 --pretty='format:%Cgreen---------------------- >8 ----------------------%nCommit: %C(yellow)%H%nAuthored by: %C(magenta)%aN %Creset%ar%nCommited by: %Cblue%cN %Creset%cr%n%n%s%n'
@@ -75,7 +78,7 @@
   # 1st variant keeps interim changes in the working directory, 2nd one stomps on them
   # args: n number of commits, default: 1
 	rollback = "!rollback(){ cd ${GIT_PREFIX:-.} && git reset HEAD~${1:-1} --soft; }; rollback"
-	erase    = "!rollback(){ cd ${GIT_PREFIX:-.} && git reset HEAD~${1:-1} --hard; }; rollback"
+	# erase    = "!erase(){ cd ${GIT_PREFIX:-.} && git reset HEAD~${1:-1} --hard; }; erase"
 
   # Displays alias information
   alias = "!alias(){ git config --get-regexp \"^alias.${1}\"; }; alias"
