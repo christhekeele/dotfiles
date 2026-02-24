@@ -56,11 +56,15 @@
   # Shows sha of branch
   # sha = rev-parse
 
-  # Lists files with status matching pattern
-  changed = "!changed(){ cd ${GIT_PREFIX:-.} && git status --porcelain $1 | grep -E '(\\?\\? |A  |M  | A | M )' | cut -c 4-; }; changed"
+  # Lists files with index status matching pattern regardless of operation
+  changed = "!changed(){ cd ${GIT_PREFIX:-.} && git status --porcelain $1 | grep -E '(\\?\\? |A  |M  |R  |C  | A | M | R | C )' | cut -c 4-; }; changed"
   untracked = "!untracked(){ cd ${GIT_PREFIX:-.} && git status --porcelain $1 | grep -E '(\\?\\? )' | cut -c 4-; }; untracked"
-  staged = "!staged(){ cd ${GIT_PREFIX:-.} && git status --porcelain $1 | grep -E '(D. |A. |M. )' | cut -c 4-; }; staged"
-  unstaged = "!unstaged(){ cd ${GIT_PREFIX:-.} && git status --porcelain $1 | grep -E '(.D |.A |.M )' | cut -c 4-; }; unstaged"
+  staged = "!staged(){ cd ${GIT_PREFIX:-.} && git status --porcelain $1 | grep -E '(D. |A. |M. |R. |C. )' | cut -c 4-; }; staged"
+  unstaged = "!unstaged(){ cd ${GIT_PREFIX:-.} && git status --porcelain $1 | grep -E '(.D |.A |.M |.R |.C )' | cut -c 4-; }; unstaged"
+  # Lists files with file operations matching pattern regardless of index status
+  added = "!added(){ cd ${GIT_PREFIX:-.} && git status --porcelain $1 | grep -E '(\\?\\? |A. |.A )' | cut -c 4-; }; added"
+  changed = "!changed(){ cd ${GIT_PREFIX:-.} && git status --porcelain $1 | grep -E '(M. |R. |C. |.M |.R |.C )' | cut -c 4-; }; changed"
+  deleted = "!deleted(){ cd ${GIT_PREFIX:-.} && git status --porcelain $1 | grep -E '(D. |.D )' | cut -c 4-; }; deleted"
 
   last   = log -n1 --pretty='format:Commit: %C(yellow)%H%nAuthored by: %C(magenta)%aN %Creset%ar%nCommited by: %Cblue%cN %Creset%cr%n%n%B'
   latest = log -n5 --pretty='format:%Cgreen---------------------- >8 ----------------------%nCommit: %C(yellow)%H%nAuthored by: %C(magenta)%aN %Creset%ar%nCommited by: %Cblue%cN %Creset%cr%n%n%s%n'
