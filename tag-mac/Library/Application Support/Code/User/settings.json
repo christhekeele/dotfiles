@@ -1,146 +1,241 @@
 {
-  "[css]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[elixir]": {
-    "editor.defaultFormatter": "JakeBecker.elixir-ls"
-  },
-  "[html]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[json]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[jsonc]": {
-    "editor.defaultFormatter": "vscode.json-language-features"
-  },
-  "[python]": {
-    "editor.formatOnType": true
-  },
-  "[typescript]": {
-    "editor.defaultFormatter": "vscode.typescript-language-features"
-  },
-  "[yaml]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "cSpell.enabledLanguageIds": [
-    "asciidoc",
-    "c",
-    "css",
-    "git-commit",
-    "graphql",
-    "handlebars",
-    "html",
-    "jade",
-    "json",
-    "jsonc",
-    "latex",
-    "less",
-    "markdown",
-    "plaintext",
-    "pug",
-    "restructuredtext",
-    "scss",
-    "text",
-    "yaml",
-    "yml"
-  ],
-  "cSpell.enableFiletypes": [
-    "!python",
-    "!elixir",
-    "!ruby",
-    "!json",
-    "!javascript",
-    "!typescript",
-  ],
-  "cSpell.userWords": [
-    "agnostically",
-    "backpressure",
-    "behaviour",
-    "behaviours",
-    "debugpy",
-    "interactable",
-    "moreso",
-    "overrwrite",
-    "rabbitmq",
-    "runtimes",
-    "structlog",
-    "unintuitive",
-    "Upsert",
-    "whiteboarding"
-  ],
-  "editor.acceptSuggestionOnEnter": "off",
-  "editor.bracketPairColorization.enabled": true,
-  "editor.fontFamily": "'Monaspace Argon', 'Fira Code', monospace",
-  "editor.fontLigatures": "'calt', 'liga', 'dlig', 'ss01', 'ss02', 'ss03', 'ss04', 'ss05', 'ss06', 'ss07', 'ss08'",
-  "editor.fontSize": 16,
-  "editor.fontWeight": "600",
-  "editor.largeFileOptimizations": false,
-  "editor.renderWhitespace": "none",
-  "editor.suggestSelection": "first",
-  "editor.tabSize": 2,
-  "editor.wordBasedSuggestions": false,
-  "explorer.confirmDelete": false,
-  "explorer.confirmDragAndDrop": false,
-  "files.associations": {
-    "*.config": "text",
-    "*.exs": "elixir",
-    "*.heex": "phoenix-heex",
-    "*.livemd": "markdown",
-    "\\.?env(\\..*?)?$": "shell"
-  },
-  "files.exclude": {
-    "**/.elixir_ls": true,
-    "**/node_modules": true
-  },
-  "git.openRepositoryInParentFolders": "never",
-  "gitlens.blame.ignoreWhitespace": true,
-  "gitlens.codeLens.authors.enabled": false,
-  "gitlens.codeLens.recentChange.enabled": false,
-  "gitlens.currentLine.pullRequests.enabled": false,
-  "gitlens.statusBar.pullRequests.enabled": false,
-  "javascript.updateImportsOnFileMove.enabled": "always",
-  "markdown-preview-enhanced.codeBlockTheme": "github.css",
-  "markdown-preview-enhanced.enableTypographer": true,
-  "markdown-preview-enhanced.frontMatterRenderingOption": "code block",
-  "markdown-preview-enhanced.previewTheme": "github-light.css",
-  "markdown-preview-enhanced.revealjsTheme": "night.css",
-  "markdown-preview-enhanced.usePandocParser": true,
-  "python.languageServer": "Pylance",
-  "redhat.telemetry.enabled": false,
-  "search.exclude": {
-    "**/deps": true,
-    "**/node_modules": false,
-    "node_modules": true
-  },
-  "search.useGlobalIgnoreFiles": true,
-  "security.workspace.trust.enabled": false,
-  "svg.preview.mode": "svg",
-  "terminal.integrated.copyOnSelection": true,
-  "terminal.integrated.cursorBlinking": true,
-  "typescript.updateImportsOnFileMove.enabled": "always",
-  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
-  "workbench.colorCustomizations": {
-    "[Community Material Theme Darker High Contrast]": {},
-    "editorBracketHighlight.foreground1": "#CDA869",
-    "editorBracketHighlight.foreground2": "#CDA869",
-    "editorBracketHighlight.foreground3": "#CDA869",
-    "editorBracketHighlight.foreground4": "#CDA869",
-    "editorBracketHighlight.foreground5": "#CDA869",
-    "editorBracketHighlight.foreground6": "#CDA869",
-    "editorBracketHighlight.unexpectedBracket.foreground": "#db6165"
-  },
-  "workbench.colorTheme": "Predawn Twilight",
-  "workbench.editor.closeOnFileDelete": true,
-  "workbench.editor.empty.hint": "hidden",
-  "workbench.editor.enablePreview": false,
-  "workbench.editorAssociations": {
-    "*.ipynb": "jupyter-notebook"
-  },
-  "workbench.iconTheme": "vs-minimal",
-  "workbench.preferredDarkColorTheme": "Predawn Twilight",
-  "workbench.startupEditor": "none"
+    "[css]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[elixir]": {
+        "editor.defaultFormatter": "JakeBecker.elixir-ls",
+        "editor.formatOnType": false
+    },
+    "[html]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[json]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[jsonc]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "[python]": {
+        "editor.formatOnType": true,
+        "editor.defaultFormatter": "ms-python.black-formatter"
+    },
+    "[typescript]": {
+        "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+    "[yaml]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "cSpell.enabledLanguageIds": [
+        "asciidoc",
+        "c",
+        "css",
+        "git-commit",
+        "graphql",
+        "handlebars",
+        "html",
+        "jade",
+        "json",
+        "jsonc",
+        "latex",
+        "less",
+        "markdown",
+        "plaintext",
+        "pug",
+        "restructuredtext",
+        "scss",
+        "text",
+        "yaml",
+        "yml"
+    ],
+    "cSpell.enableFiletypes": [
+        "!elixir",
+        "!javascript",
+        "!json",
+        "!python",
+        "!ruby",
+        "!rust",
+        "!typescript"
+    ],
+    "cSpell.userWords": [
+        "backpressure",
+        "behaviour",
+        "behaviours",
+        "Fidelitous",
+        "interactable",
+        "kpis",
+        "moreso",
+        "overrwrite",
+        "Permissioned",
+        "runtimes",
+        "unintuitive",
+        "upsert",
+        "whiteboarding"
+    ],
+    "editor.acceptSuggestionOnEnter": "off",
+    "editor.bracketPairColorization.enabled": true,
+    "editor.fontFamily": "'Monaspace Argon', 'Fira Code', monospace",
+    "editor.fontLigatures": "'calt', 'liga', 'dlig', 'ss01', 'ss02', 'ss03', 'ss04', 'ss05', 'ss06', 'ss07', 'ss08'",
+    "editor.fontSize": 16,
+    "editor.fontWeight": "600",
+    "editor.largeFileOptimizations": false,
+    "editor.renderWhitespace": "none",
+    "editor.suggestSelection": "first",
+    "editor.tabSize": 2,
+    "editor.wordBasedSuggestions": "off",
+    "elixirLS.enableTestLenses": true,
+    "explorer.confirmDelete": false,
+    "explorer.confirmDragAndDrop": false,
+    "files.associations": {
+        "*.config": "text",
+        "*.exs": "elixir",
+        "*.heex": "phoenix-heex",
+        "*.livemd": "markdown",
+        "*.cheatmd": "markdown",
+        "\\.?env(\\..*?)?$": "shellscript",
+        ".tool-versions": "shellscript"
+    },
+    "files.exclude": {
+        "**/.elixir_ls": true,
+        "**/node_modules": true
+    },
+    "git.openRepositoryInParentFolders": "never",
+    "gitlens.blame.ignoreWhitespace": true,
+    "gitlens.codeLens.authors.enabled": false,
+    "gitlens.codeLens.recentChange.enabled": false,
+    "gitlens.currentLine.pullRequests.enabled": false,
+    "gitlens.statusBar.pullRequests.enabled": false,
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "markdown-preview-enhanced.codeBlockTheme": "github-dark.css",
+    "markdown-preview-enhanced.enableTypographer": true,
+    "markdown-preview-enhanced.frontMatterRenderingOption": "code block",
+    "markdown-preview-enhanced.previewTheme": "github-dark.css",
+    "markdown-preview-enhanced.revealjsTheme": "night.css",
+    "markdown-preview-enhanced.usePandocParser": true,
+    "python.languageServer": "Pylance",
+    "redhat.telemetry.enabled": false,
+    "search.exclude": {
+        "**/deps": true,
+        "**/node_modules": false,
+        "node_modules": true
+    },
+    "search.useGlobalIgnoreFiles": true,
+    "security.workspace.trust.enabled": false,
+    "svg.preview.mode": "svg",
+    "terminal.integrated.copyOnSelection": true,
+    "terminal.integrated.cursorBlinking": true,
+    "typescript.updateImportsOnFileMove.enabled": "always",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "workbench.colorCustomizations": {
+        "[Community Material Theme Darker High Contrast]": {},
+        "editorBracketHighlight.foreground1": "#CDA869",
+        "editorBracketHighlight.foreground2": "#CDA869",
+        "editorBracketHighlight.foreground3": "#CDA869",
+        "editorBracketHighlight.foreground4": "#CDA869",
+        "editorBracketHighlight.foreground5": "#CDA869",
+        "editorBracketHighlight.foreground6": "#CDA869",
+        "editorBracketHighlight.unexpectedBracket.foreground": "#db6165",
+        "terminal.background": "#000000",
+        "terminal.foreground": "#ffffff",
+        "terminal.ansiBlack": "#000000",
+        "terminal.ansiBrightBlack": "#665C54",
+        "terminal.ansiBrightBlue": "#83afd8",
+        "terminal.ansiBrightCyan": "#37e5e7",
+        "terminal.ansiBrightGreen": "#98e342",
+        "terminal.ansiBrightMagenta": "#bc93b6",
+        "terminal.ansiBrightRed": "#f44135",
+        "terminal.ansiBrightWhite": "#FDF4C1",
+        "terminal.ansiBrightYellow": "#fdeb61",
+        "terminal.ansiBlue": "#417ab3",
+        "terminal.ansiCyan": "#00a7aa",
+        "terminal.ansiGreen": "#5da602",
+        "terminal.ansiMagenta": "#88658d",
+        "terminal.ansiRed": "#d81e00",
+        "terminal.ansiWhite": "#A89984",
+        "terminal.ansiYellow": "#cfad00",
+        "terminal.selectionBackground": "#00aa87",
+        "terminal.selectionForeground": "#000000",
+    },
+    "workbench.colorTheme": "Predawn Twilight",
+    "workbench.editor.closeOnFileDelete": true,
+    "workbench.editor.empty.hint": "hidden",
+    "workbench.editorAssociations": {
+        "*.ipynb": "jupyter-notebook"
+    },
+    "workbench.iconTheme": "vs-minimal",
+    "workbench.preferredDarkColorTheme": "Predawn Twilight",
+    "workbench.startupEditor": "none",
+    "cmake.showOptionsMovedNotification": false,
+    "[erlang]": {
+        "editor.defaultFormatter": "pgourlain.erlang"
+    },
+    "update.showReleaseNotes": false,
+    "elixirLS.autoInsertRequiredAlias": false,
+    "evenBetterToml.formatter.trailingNewline": false,
+    "editor.trimAutoWhitespace": false,
+    "workbench.settings.openDefaultKeybindings": true,
+    "gitlens.launchpad.indicator.enabled": false,
+    "typescript.preferGoToSourceDefinition": true,
+    "javascript.preferGoToSourceDefinition": true,
+    "editor.gotoLocation.alternativeDeclarationCommand": "editor.action.goToImplementation",
+    "editor.gotoLocation.alternativeTypeDefinitionCommand": "editor.action.goToImplementation",
+    "editor.gotoLocation.alternativeDefinitionCommand": "editor.action.goToImplementation",
+    "cSpell.languageSettings": [],
+    "[dynamic csv]": {},
+    "docker.extension.enableComposeLanguageServer": false,
+    "color-highlight.markRuler": false,
+    "color-highlight.markerType": "outline",
+    "[typescriptreact]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "lexical.notifyOnServerAutoUpdate": false,
+    "lexical.server.releasePathOverride": "~/.local/bin/expert",
+    "[javascriptreact]": {},
+    "makefile.configureOnOpen": false,
+    "editor.maxTokenizationLineLength": 100000,
+    "terminal.integrated.fontSize": 16,
+    "terminal.integrated.fontLigatures.enabled": true,
+    "terminal.integrated.fontWeight": "bold",
+    "accessibility.verbosity.terminal": false,
+    "terminal.external.osxExec": "iTerm.app",
+    "terminal.integrated.automationProfile.osx": {},
+    "terminal.integrated.allowedLinkSchemes": [
+        "file",
+        "http",
+        "https",
+        "mailto",
+        "vscode",
+        "vscode-insiders",
+        "postgresql"
+    ],
+    "debug.console.fontSize": 18,
+    "debug.hideLauncherWhileDebugging": true,
+    "python.terminal.focusAfterLaunch": true,
+    "terminal.integrated.scrollback": 1000000,
+    "terminal.explorerKind": "external",
+    "python.envFile": "${workspaceFolder}/.env.test",
+    "github.copilot.nextEditSuggestions.enabled": false,
+    "C_Cpp.copilotHover": "disabled",
+    "github.copilot.enable": {
+        "*": false
+    },
+    "github.copilot.chat.reviewAgent.enabled": false,
+    "github.copilot.chat.reviewSelection.enabled": false,
+    "chat.agent.enabled": false,
+    "debug.javascript.defaultRuntimeExecutable": {
+        "pwa-node": "node"
+    },
+    "chat.disableAIFeatures": true,
+    "editor.inlineSuggest.edits.showCollapsed": true,
+    "git.blame.editorDecoration.enabled": true,
+    "sql-formatter.dialect": "postgresql",
+    "Prettier-SQL.expressionWidth": 120,
+    "Prettier-SQL.keywordCase": "upper",
+    "Prettier-SQL.linesBetweenQueries": 2,
+    "Prettier-SQL.logicalOperatorNewline": "after",
+    "Prettier-SQL.newlineBeforeSemicolon": true,
+    "Prettier-SQL.SQLFlavourOverride": "postgresql",
+    "Prettier-SQL.tabulateAlias": true,
 }

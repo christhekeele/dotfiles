@@ -48,12 +48,12 @@ brew "watch"
 ####
 # Apps
 ##
-brew "alfred"
-brew "google-chrome"
-brew "istat-menus"
-brew "iterm2"
-brew "tableplus"
-brew "visual-studio-code"
+# brew "alfred"
+# brew "google-chrome"
+# brew "istat-menus"
+# brew "iterm2"
+# brew "tableplus"
+# brew "visual-studio-code"
 
 ####
 # Fonts
