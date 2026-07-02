@@ -238,4 +238,6 @@
     "Prettier-SQL.newlineBeforeSemicolon": true,
     "Prettier-SQL.SQLFlavourOverride": "postgresql",
     "Prettier-SQL.tabulateAlias": true,
+    "emmet.showExpandedAbbreviation": "inMarkupAndStylesheetFilesOnly",
+    "claudeCode.preferredLocation": "panel",
 }
