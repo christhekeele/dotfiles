@@ -44,7 +44,7 @@ set -gx ERL_AFLAGS "-kernel shell_history enabled -kernel shell_history_file '.i
 # ERLANG
 set -gx ERL_FLAGS "+B"
 set -gx KERL_BUILD_DOCS "yes"
-set -gx KERL_CONFIGURE_OPTIONS "--without-javac --without-odbc --with-ssl=$(brew --prefix openssl@1.1)"
+set -gx KERL_CONFIGURE_OPTIONS "--without-javac --without-odbc --with-ssl=$(brew --prefix openssl@3)"
 
 # FLY.IO
 
