@@ -14,13 +14,15 @@ end
 if status is-login
   echo "Detected login shell session..."
   set -a SESSION_TYPE login
-  mise activate fish --shims | source
+  if not status is-interactive
+    test -q mise; and mise activate fish --shims | source
+  end
 end
 
 if status is-interactive
   echo "Detected interactive shell session..."
   set -a SESSION_TYPE interactive
-  mise activate fish | source
+  test -q mise; and mise activate fish | source
 end
 
 ####
