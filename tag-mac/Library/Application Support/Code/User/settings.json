@@ -259,4 +259,6 @@
         "**/.forgejo/workflows/*.yml",
         "**/.forgejo/workflows/*.yaml"
     ],
+    "elixirLS.fetchDeps": true,
+    "elixirLS.mixEnv": "dev",
 }
