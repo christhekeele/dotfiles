@@ -4,7 +4,7 @@
     },
     "[elixir]": {
         "editor.defaultFormatter": "JakeBecker.elixir-ls",
-        "editor.formatOnType": false
+        "editor.formatOnType": false,
     },
     "[html]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"

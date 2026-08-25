@@ -2,6 +2,8 @@
 # INTERACTIVE SESSION DETECTION
 ##
 
+~/.local/bin/mise activate fish | source
+
 set -gx SESSION_TYPE
 
 if begin set -q SSH_CLIENT; or set -q SSH_TTY; or set -q SSH_CONNECTION; or ps -p %self | grep ssh; end

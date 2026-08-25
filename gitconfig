@@ -70,9 +70,9 @@
   latest = log -n5 --pretty='format:%Cgreen---------------------- >8 ----------------------%nCommit: %C(yellow)%H%nAuthored by: %C(magenta)%aN %Creset%ar%nCommited by: %Cblue%cN %Creset%cr%n%n%s%n'
 
   # Reverts unstaged changes to provided files
-	discard = checkout --force --
+	discard = "!discard(){ git -C $(git rev-parse --show-toplevel) restore $@; }; discard"
   # Removes staged changes from working index to provided files
-  unstage = restore --staged
+  unstage = "!unstage(){ git -C $(git rev-parse --show-toplevel) restore --staged $@; }; unstage"
 
   # Shows SHA of common commit between two branches
   ancestor = merge-base --octopus
@@ -81,8 +81,8 @@
   # Good for commiting as you go then rebuilding cleaner commits once you arrive
   # 1st variant keeps interim changes in the working directory, 2nd one stomps on them
   # args: n number of commits, default: 1
-	rollback = "!rollback(){ cd ${GIT_PREFIX:-.} && git reset HEAD~${1:-1} --soft; }; rollback"
-	# erase    = "!erase(){ cd ${GIT_PREFIX:-.} && git reset HEAD~${1:-1} --hard; }; erase"
+	rollback = "!rollback(){ git -C $(git rev-parse --show-toplevel) reset HEAD~${1:-1} --soft; }; rollback"
+	# erase    = "!erase(){ git -C $(git rev-parse --show-toplevel) reset HEAD~${1:-1} --hard; }; erase"
 
   # Displays alias information
   alias = "!alias(){ git config --get-regexp \"^alias.${1}\"; }; alias"
