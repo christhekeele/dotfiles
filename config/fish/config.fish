@@ -44,6 +44,7 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 # ELIXIR
 set -gx MIX_HOME $HOME/.mix
 set -gx ERL_AFLAGS "-kernel shell_history enabled -kernel shell_history_path '\"$HOME/.iex_history\"'"
+set -gx MIX_TARGET local
 
 # ERLANG
 set -gx ERL_FLAGS "+B"

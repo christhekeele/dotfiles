@@ -55,6 +55,8 @@ IEx.configure(
   inspect: [
     pretty: true,
     limit: :infinity,
+    printable_limit: :infinity,
+    structs: false,
     width: 120,
     charlists: :as_lists,
     custom_options: [sort_maps: true]

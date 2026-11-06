@@ -35,11 +35,24 @@
 [fetch]
 	prune = true
 	pruneTags = true
-	all = true
 [commit]
 	cleanup = scissors
 	verbose = true
 
+[init]
+	defaultBranch = latest
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[tag]
+	sort = version:refname
+[rebase]
+	autoSquash = true
+	autoStash = true
+	updateRefs = true
+  
 [alias]
   # Check for whitespace errors:
   # args: all normal diff args
@@ -147,16 +160,3 @@
   # header = normal
   # help = normal
   # error = normal
-[init]
-	defaultBranch = latest
-[filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
-[tag]
-	sort = version:refname
-[rebase]
-	autoSquash = true
-	autoStash = true
-	updateRefs = true
