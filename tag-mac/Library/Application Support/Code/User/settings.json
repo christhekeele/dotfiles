@@ -259,4 +259,5 @@
     ],
     "elixirLS.fetchDeps": true,
     "elixirLS.mixEnv": "dev",
+    "explorer.confirmPasteNative": false,
 }
